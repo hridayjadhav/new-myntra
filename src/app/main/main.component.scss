@@ -1,0 +1,97 @@
+@import "../style/variables";
+
+.main{
+    margin-top: 140px;
+}
+.carousel-inner > .caro > a > img {
+    width: 100%;
+    height: 40vh;
+    object-fit: cover;
+}
+.mid-main h4, .mid-main-2 h4, .mid-main-3 h4, .last-main h4{
+    text-transform: uppercase;
+    color: $main-text;
+    letter-spacing: .15em;
+    font-size: 1.5em;
+    margin: 0px 0 40px 18px;
+    font-weight: 700;
+}
+.carousel-indicators [data-bs-target]{
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    background-color: $trigger-clr;
+}
+.carousel-indicators{
+    bottom: -60px;
+}
+
+.rakhi-sec img{
+    width: 50vw;
+    height: 100%;
+}
+.glob-brand a img , .brand-coll a img , .catogory-coll a img{
+    width: 50vw;
+
+}
+.m-left{
+    margin-left: -16px;
+}
+
+
+
+@media (min-width: 480px){
+    
+    .rakhi-sec img{
+        width: 100%;
+    }
+    .m-left{
+        margin-left: -25px;
+    }
+}
+
+@media (min-width:576px){
+    .carousel-inner > .caro > a > img {
+        height: 50vh; 
+        object-fit: fill;
+    }
+    
+    .glob-brand a img , .brand-coll a img , .catogory-coll a img{
+        width: 34vw;
+    }
+    .m-left{
+        margin-left: -20px;
+    }
+}
+@media (min-width: 768px){
+    
+    .glob-brand a img , .brand-coll a img , .catogory-coll a img{
+        width: 25vw;
+    }
+    .m-left{
+        margin-left: -10px;
+    }
+}
+
+@media (min-width: 992px){
+    
+    .glob-brand a img , .brand-coll a img {
+        width: 17vw;
+    }
+    .catogory-coll a img{
+        width: 16vw;
+    }
+    .m-left{
+        margin-left: 16px;
+    }
+}
+@media (min-width: 992px){
+    
+    .carousel-inner > .caro > a > img {
+        height: 60vh; 
+    }
+    
+}
+@media (min-width: 1366px){
+    
+}

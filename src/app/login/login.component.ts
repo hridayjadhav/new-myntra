@@ -95,12 +95,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  goToHomescreen() {
-    this.router.navigate(['/homescreen']);
-  }
-
-  onSubmit(){
-    this.router.navigate(['/homescreen']);
+  goToHome(){
+    this.isLoggedIn = true;
+    this.router.navigate(['/home']);
   }
  
   public backToLogin() {

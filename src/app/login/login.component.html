@@ -95,7 +95,6 @@
               <div class="fs-small">Sent to {{ mobileNum }}</div>
               <form
                 [formGroup]="otpForm"
-                (ngSubmit)="onSubmit()"
                 class="input-group mt-4"
               >
                 <input
@@ -114,8 +113,8 @@
                 <div class="button mt-3 text-center">
                   <button
                     [disabled]="otpForm.invalid"
+                    (click)="goToHome()"
                     type="button"
-                    (click)="goToHomescreen()"
                     class="btn btn-secondary text-uppercase fw-bold"
                     data-bs-toggle="modal" 
                     data-bs-target="#staticBackdrop"

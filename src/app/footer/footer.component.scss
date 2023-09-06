@@ -1,0 +1,135 @@
+@import "../style/variables";
+
+
+.footer {
+    background-color: $bg-blue;
+    
+}
+
+ul{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: $footer-ul-text;
+}
+ul a{
+    color: $footer-li-text;   
+}
+.lists .head{
+    font-weight: 700; 
+}
+.lists .head p{
+    font-size: 11px;
+    margin-left: 32px;
+}
+.lists2{
+    display: flex;
+    align-items: center;
+}
+.lists2 .head2{
+    font-weight: 700; 
+}
+.lists2 .head2 p{
+    font-size: 11px;
+    // margin-left: 32px;
+}
+.divider{
+    flex-grow: 1; /*  it take up all available horizontal space, pushing itself to the right. */
+    height: 1px; 
+    background-color: $hr-line;
+    margin-left: 10px;
+    margin-top: -20px;
+}
+.searches a{
+    
+    text-decoration: none;
+    color: $footer-li-text;
+    font-size: 14px;
+    line-height: 25px;
+}
+.searches a::after{
+    content: "| ";
+    margin-left: 3px;
+}
+.searches .no-line::after{
+    content: " ";
+    margin-left: 3px;
+}
+ul a li{
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+.keep-touch-sec img{
+    width: 20px;
+}
+.mar-icon {
+    margin-left: 32px;
+}
+.text-color {
+    color: $footer-li-text;
+}
+.ul-color{
+    color: $footer-ul-text;
+}
+.react-img{
+    width: 27%;
+}
+.m-32{
+    width: 60vw;
+    margin-left: 32px;
+}
+.con-copy {
+    p{
+        color: $footer-li-text;
+        font-size: 15px;
+    }
+}
+.address p{
+    font-size: 13px;
+    color: $footer-li-text;
+}
+.m-top{
+    margin-top: auto;
+}
+
+@media (min-width:480px){
+    .guarantee-img, .react-img{
+        width: 16vw;
+    }
+    .guarantee-text p, .react-text p{
+        font-size: 16px;
+    }
+}
+@media (min-width:576px){
+    .m-32{
+        width: 35vw;
+    }
+}
+@media (min-width:992px){
+    .m-32{
+        margin-left: 32px;
+        width: 16vw;
+    }
+    .guarantee-img, .react-img{
+        width: 10vw;
+    }
+    .guarantee-text p, .react-text p{
+        font-size: 12px;
+    }
+    .footer{
+        padding: 0px 100px;
+    }
+    
+}
+@media (min-width:1200px){
+    .guarantee-img {
+        width: 6vw;
+    }
+    .react-img{
+        width: 5vw;
+    }
+    .footer{
+        padding: 0px 150px;
+    }
+}
