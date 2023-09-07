@@ -96,8 +96,13 @@ export class LoginComponent implements OnInit {
   }
 
   goToHome(){
-    this.isLoggedIn = true;
-    this.router.navigate(['/home']);
+    // this.isLoggedIn = true;
+    // this.router.navigate(['/home']);
+    const enteredOTP = this.otpForm.get('otpNo').value;
+    if(enteredOTP){
+      sessionStorage.setItem('isVerified', 'true');
+      this.router.navigate(['/home']);
+    }
   }
  
   public backToLogin() {

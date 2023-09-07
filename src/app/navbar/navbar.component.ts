@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { faCircleUser, faHeart, faShoppingBag, faMagnifyingGlass, faBars } from '@fortawesome/free-solid-svg-icons'
+import { faCircleUser, faHeart, faShoppingBag, faMagnifyingGlass, faBars,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 
 @Component({
@@ -13,7 +13,13 @@ export class NavbarComponent {
   bagIcon = faShoppingBag;
   searchIcon = faMagnifyingGlass;
   menuIcon = faBars;
+  logoutIcon = faArrowRightFromBracket;
 
   constructor( private router: Router ){}
+
+  logout(){
+    sessionStorage.clear();
+    this.router.navigate(['/login']);
+  }
 
 }

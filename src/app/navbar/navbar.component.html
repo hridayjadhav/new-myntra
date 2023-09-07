@@ -8,7 +8,7 @@
         /></a>
       </div>
       <div class="nav-menu col-lg-5 d-none d-lg-flex justify-content-around mt-3">
-        <div class="dropdown">
+        <!-- <div class="dropdown">
           <a href="#">men</a>
           <div class="dropdown-content">
             <ul>
@@ -18,7 +18,8 @@
               <li><a href="#">Accessories</a></li>
             </ul>
           </div>
-        </div>
+        </div> -->
+        <a href="#">men</a>
         <a href="#">women</a>
         <a href="#">kids</a>
         <a href="#">home & living</a>
@@ -33,9 +34,9 @@
         />
       </div>
       <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3">
-        <a href="#"><fa-icon  [icon]="userIcon"></fa-icon>Profile</a>
-        <a href="#"><fa-icon  [icon]="heartIcon"></fa-icon>Wishlist</a>
-        <a href="#"><fa-icon  [icon]="bagIcon"></fa-icon>Bag</a>
+        <a href="#"><fa-icon class="me-xl-1 ms-lg-3"  [icon]="userIcon"></fa-icon>Profile</a>
+        <a href="#"><fa-icon class="me-xl-1 ms-xl-2 ms-lg-3"  [icon]="heartIcon"></fa-icon>Wishlist</a>
+        <a href="#"><fa-icon class="me-xl-1 ms-xl-2 ms-lg-1"  [icon]="bagIcon"></fa-icon>Bag</a>
       </div>
       <div class="d-block d-lg-none">
         <button
@@ -77,9 +78,17 @@
                 <li class="list-group-item"><a href="#">studio</a></li>
               </ul>
             </div>
+            <div class="mt-5 ms-3">
+              <a class="logoutBtn d-block d-lg-none" (click)="logout()">
+                <fa-icon class="fs-4"  [icon]="logoutIcon"></fa-icon>
+              </a>
+            </div>
           </div>
         </div>
       </div>
+      <a class="logoutBtn d-none d-lg-block" (click)="logout()">
+        <fa-icon class="fs-4"  [icon]="logoutIcon"></fa-icon>
+      </a>
   
     </div>
   </nav>

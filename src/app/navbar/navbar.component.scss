@@ -63,6 +63,9 @@ a{
         color: $text-color;
     }
 }
+.logoutBtn{
+    cursor: pointer;
+}
 
 @media (min-width:992px){
     
@@ -90,6 +93,10 @@ a{
     
     .dropdown-content ul li {
       padding: 10px;
+    }
+    .logoutBtn{
+        padding-top: 8px;
+        cursor: pointer;
     }
 }
   
