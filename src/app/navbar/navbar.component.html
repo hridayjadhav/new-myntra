@@ -1,14 +1,14 @@
 <nav class="header container-fluid py-3 px-4 col-12">
-    <div class="d-flex justify-content-between text-uppercase">
-      <div class="nav-logo col-lg-1">
-        <a routerLink="/homescreen"
-          ><img
-            src="https://gumlet.assettype.com/afaqs/2021-01/15f5f827-8e29-4520-af8d-a0f353b8da17/images.png?auto=format,compress&w=1200"
-            alt="NavLogo"
-        /></a>
-      </div>
-      <div class="nav-menu col-lg-5 d-none d-lg-flex justify-content-around mt-3">
-        <!-- <div class="dropdown">
+  <div class="d-flex justify-content-between text-uppercase">
+    <div class="nav-logo col-lg-1">
+      <a routerLink="/homescreen"
+        ><img
+          src="https://gumlet.assettype.com/afaqs/2021-01/15f5f827-8e29-4520-af8d-a0f353b8da17/images.png?auto=format,compress&w=1200"
+          alt="NavLogo"
+      /></a>
+    </div>
+    <div class="nav-menu col-lg-5 d-none d-lg-flex justify-content-around mt-3">
+      <!-- <div class="dropdown">
           <a href="#">men</a>
           <div class="dropdown-content">
             <ul>
@@ -19,77 +19,80 @@
             </ul>
           </div>
         </div> -->
-        <a href="#">men</a>
-        <a href="#">women</a>
-        <a href="#">kids</a>
-        <a href="#">home & living</a>
-        <a href="#">beauty</a>
-        <a href="#">studio <sup class="text-secondary">new</sup></a>
-      </div>
-      <div class="searchbar d-none d-lg-flex align-items-center">
-        <fa-icon class="ms-lg-3 ms-xl-1 " [icon]="searchIcon"></fa-icon>
-        <input
-          type="search"
-          placeholder="Search for products,brands and more"
-        />
-      </div>
-      <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3">
-        <a href="#"><fa-icon class="me-xl-1 ms-lg-3"  [icon]="userIcon"></fa-icon>Profile</a>
-        <a href="#"><fa-icon class="me-xl-1 ms-xl-2 ms-lg-3"  [icon]="heartIcon"></fa-icon>Wishlist</a>
-        <a href="#"><fa-icon class="me-xl-1 ms-xl-2 ms-lg-1"  [icon]="bagIcon"></fa-icon>Bag</a>
-      </div>
-      <div class="d-block d-lg-none">
-        <button
-          class="icons btn d-lg-none"
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasWithBothOptions"
-        >
-        <fa-icon class="fs-3"  [icon]="menuIcon"></fa-icon>
-        </button>
-        <div
-          class="offcanvas offcanvas-end"
-          data-bs-scroll="true"
-          tabindex="-1"
-          id="offcanvasWithBothOptions"
-        >
-          <div class="offcanvas-header">
-            <h5
-              class="offcanvas-title fw-bold"
-              id="offcanvasWithBothOptionsLabel"
-            >
-              MYNTRA
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            ></button>
+      <a href="#">men</a>
+      <a href="#">women</a>
+      <a href="#">kids</a>
+      <a href="#">home & living</a>
+      <a href="#">beauty</a>
+      <a href="#">studio <sup class="text-secondary">new</sup></a>
+    </div>
+    <div class="searchbar d-none d-lg-flex align-items-center">
+      <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
+      <input type="search" placeholder="Search for products,brands and more" />
+    </div>
+    <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3">
+      <a href="#"
+        ><fa-icon class="me-xl-1 ms-lg-3" [icon]="userIcon"></fa-icon>Profile</a
+      >
+      <a href="#"
+        ><fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="heartIcon"></fa-icon
+        >Wishlist</a
+      >
+      <a href="#"
+        ><fa-icon class="me-xl-1 ms-xl-2 ms-lg-1" [icon]="bagIcon"></fa-icon
+        >Bag</a
+      >
+    </div>
+    <div class="d-block d-lg-none">
+      <button
+        class="icons btn d-lg-none"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions"
+      >
+        <fa-icon class="fs-3" [icon]="menuIcon"></fa-icon>
+      </button>
+      <div
+        class="offcanvas offcanvas-end"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+      >
+        <div class="offcanvas-header">
+          <h5
+            class="offcanvas-title fw-bold"
+            id="offcanvasWithBothOptionsLabel"
+          >
+            MYNTRA
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <div class="mt-3">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="#">men</a></li>
+              <li class="list-group-item"><a href="#">women</a></li>
+              <li class="list-group-item"><a href="#">kids</a></li>
+              <li class="list-group-item"><a href="#">home & living</a></li>
+              <li class="list-group-item"><a href="#">beauty</a></li>
+              <li class="list-group-item"><a href="#">studio</a></li>
+            </ul>
           </div>
-          <div class="offcanvas-body">
-            <div class="mt-3">
-              <ul class="list-group">
-                <li class="list-group-item"><a href="#">men</a></li>
-                <li class="list-group-item"><a href="#">women</a></li>
-                <li class="list-group-item"><a href="#">kids</a></li>
-                <li class="list-group-item"><a href="#">home & living</a></li>
-                <li class="list-group-item"><a href="#">beauty</a></li>
-                <li class="list-group-item"><a href="#">studio</a></li>
-              </ul>
-            </div>
-            <div class="mt-5 ms-3">
-              <a class="logoutBtn d-block d-lg-none" (click)="logout()">
-                <fa-icon class="fs-4"  [icon]="logoutIcon"></fa-icon>
-              </a>
-            </div>
+          <div class="mt-5 ms-3">
+            <a class="logoutBtn d-block d-lg-none" (click)="logout()">
+              <fa-icon class="fs-4" [icon]="logoutIcon"></fa-icon>
+            </a>
           </div>
         </div>
       </div>
-      <a class="logoutBtn d-none d-lg-block" (click)="logout()">
-        <fa-icon class="fs-4"  [icon]="logoutIcon"></fa-icon>
-      </a>
-  
     </div>
-  </nav>
-  
+    <a class="logoutBtn d-none d-lg-block" (click)="logout()">
+      <fa-icon class="fs-4" [icon]="logoutIcon"></fa-icon>
+    </a>
+  </div>
+</nav>

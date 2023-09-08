@@ -1,42 +1,43 @@
 <ng-container *ngIf="!isLoggedIn">
-    <section class="bg-blue">
-      <div class="margin-left col-md-6 col-lg-4 col-xl-3 pt-5">
-        <div>
-          <div class="login-img">
-            <img
-              class="img-fluid"
-              src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2023/8/19/16179c9c-a3a5-4453-9fe3-fd99697782221692384110050-Flat-300_1800-x-721.jpg"
-              alt="login-img"
-            />
+  <section class="bg-blue">
+    <div class="margin-left col-md-6 col-lg-4 col-xl-3 pt-5">
+      <div>
+        <div class="login-img">
+          <img
+            class="img-fluid"
+            src="https://assets.myntassets.com/f_webp,dpr_1.5,q_60,w_400,c_limit,fl_progressive/assets/images/2023/8/19/16179c9c-a3a5-4453-9fe3-fd99697782221692384110050-Flat-300_1800-x-721.jpg"
+            alt="login-img"
+          />
+        </div>
+        <div class="login-sec p-4">
+          <div>
+            <h5>Login <span class="fs-6 text-secondary">or</span> Signup</h5>
           </div>
-          <div class="login-sec p-4">
-            <div>
-              <h5>Login <span class="fs-6 text-secondary">or</span> Signup</h5>
+          <form
+            [formGroup]="loginForm"
+            (ngSubmit)="onSubmitForm()"
+            class="input-group input-before-number mt-4"
+          >
+            <div class="form-group">
+              <!-- We use the (input) event binding in Angular to listen for input changes within an HTML input element. -->
+              <input
+                type="tel"
+                placeholder=" Mobile Number *"
+                class="form-control py-1"
+                name="contactNo"
+                formControlName="contactNo"
+                (input)="mobileNumberValidation()"
+                [ngClass]="{
+                  'is-invalid': contactNo.touched && contactNo.invalid
+                }"
+              />
             </div>
-            <form
-              [formGroup]="loginForm"
-              (ngSubmit)="onSubmitForm()"
-              class="input-group input-before-number mt-4"
+            <div
+              class="fs-small"
+              *ngIf="contactNo.touched && contactNo.invalid"
             >
-              <div class="form-group">
-                <!-- We use the (input) event binding in Angular to listen for input changes within an HTML input element. -->
-                <input
-                  type="tel"
-                  placeholder=" Mobile Number *"
-                  class="form-control py-1"
-                  name="contactNo"
-                  formControlName="contactNo"
-                  (input)="mobileNumberValidation()"
-                  [ngClass]="{'is-invalid': contactNo.touched && contactNo.invalid }"
-                />
-              </div>
-            
-            <div class="fs-small" *ngIf="contactNo.touched && contactNo.invalid">
-              <div *ngIf="contactNo.errors.required">
-                Please Enter Valid Mobile Number(10 digits)
-              </div>
-              <div *ngIf="contactNo.errors.minlength">
-                Please Enter Valid Mobile Number(10 digits)
+              <div class="error-message">
+                {{ getContactNumberErrorMessage() }}
               </div>
             </div>
             <div class="mt-4">
@@ -72,106 +73,117 @@
               </div>
             </div>
           </form>
-          </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 </ng-container>
 <ng-container *ngIf="isLoggedIn">
-    <section class="bg-blue">
-        <div class="margin-left col-md-6 col-lg-4 col-xl-3">
-          <div class="otp-page mt-5">
-            <div class="otp-img">
-              <img
-                class="img-fluid"
-                src="https://constant.myntassets.com/pwa/assets/img/3a438cb4-c9bf-4316-b60c-c63e40a1a96d1548071106233-mobile-verification.jpg"
-                alt="otp-img"
-              />
-            </div>
-            <div class="otp-sec px-4 py-2">
-              <div>
-                <h5>Verify with OTP</h5>
-              </div>
-              <div class="fs-small">Sent to {{ mobileNum }}</div>
-              <form
-                [formGroup]="otpForm"
-                class="input-group mt-4"
-              >
-                <input
-                  type="text"
-                  class="form-control"
-                  name="otpNo"
-                  formControlName="otpNo"
-                  (input)="limit()"
-                  [ngClass]="{ 'is-invalid': otpNo.touched && otpNo.invalid }"
-                />
-                <div class="fs-small ms-4" *ngIf="otpNo.touched && otpNo.invalid">
-                  <div *ngIf="otpNo.errors.required">Please enter valid OTP</div>
-                  <div *ngIf="otpNo.errors.minlength">OTP should be 4 digits</div>
-                </div>
-      
-                <div class="button mt-3 text-center">
-                  <button
-                    [disabled]="otpForm.invalid"
-                    (click)="goToHome()"
-                    type="button"
-                    class="btn btn-secondary text-uppercase fw-bold"
-                    data-bs-toggle="modal" 
-                    data-bs-target="#staticBackdrop"
-                  >
-                    verify
-                  </button>
-                </div>
-              
-              <div class="mt-4">
-                <div class="otp-timer">
-                  <p class="text-secondary fs-small" *ngIf="num > 0">     <!-- jab tak num ki value greater than 0 hai, tab tak hi ye block dikhega -->
-                     Resend OTP in 
-                    <span class="text-dark fw-bold" *ngIf="num > 0">{{
-                      this.num
-                    }}</span>
-                  </p>
-                  <a class="cursor" (click)="restartTimer()">
-                    <p class="text-secondary fs-small cursor d-block" *ngIf="num === 0">
-                      Resend the OTP
-                    </p>
-                  </a>
-                </div>
-                <div class="fs-small">
-                  <p class="text-secondary">
-                    <!-- <a routerLink="/login">Back to Login</a> -->
-                    <a class="cursor" (click)="backToLogin()">Back to Login</a> 
-                  </p>
-                </div>
-                <div class="get-help mt-4">
-                  <p class="text-secondary">
-                    Have trouble logging in? <span><a href="#">Get Help</a></span>
-                  </p>
-                </div>
-              </div>
-              </form>
-            </div>
-          </div>
+  <section class="bg-blue">
+    <div class="margin-left col-md-6 col-lg-4 col-xl-3">
+      <div class="otp-page mt-5">
+        <div class="otp-img">
+          <img
+            class="img-fluid"
+            src="https://constant.myntassets.com/pwa/assets/img/3a438cb4-c9bf-4316-b60c-c63e40a1a96d1548071106233-mobile-verification.jpg"
+            alt="otp-img"
+          />
         </div>
-      </section>
-      
-      <!-- Modal -->
-      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="staticBackdropLabel">Login</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" ></button>
-            </div>
-            <div class="modal-body">
-              Login Successfully!
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btnn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
+        <div class="otp-sec px-4 py-2">
+          <div>
+            <h5>Verify with OTP</h5>
           </div>
+          <div class="fs-small">Sent to {{ mobileNum }}</div>
+          <form [formGroup]="otpForm" class="input-group mt-4">
+            <input
+              type="text"
+              class="form-control"
+              name="otpNo"
+              formControlName="otpNo"
+              (input)="limit()"
+              [ngClass]="{ 'is-invalid': otpNo.touched && otpNo.invalid }"
+            />
+            <div class="fs-small" *ngIf="otpNo.touched && otpNo.invalid">
+              <div class="error-message">{{ getOtpErrorMessage() }}</div>
+            </div>
+
+            <div class="button mt-3 text-center">
+              <button
+                [disabled]="otpForm.invalid"
+                (click)="goToHome()"
+                type="button"
+                class="btn btn-secondary text-uppercase fw-bold"
+                data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop"
+              >
+                verify
+              </button>
+            </div>
+
+            <div class="mt-4">
+              <div class="otp-timer">
+                <p class="text-secondary fs-small" *ngIf="num > 0">
+                  <!-- jab tak num ki value greater than 0 hai, tab tak hi ye block dikhega -->
+                  Resend OTP in
+                  <span class="text-dark fw-bold" *ngIf="num > 0">{{
+                    this.num
+                  }}</span>
+                </p>
+                <a class="cursor" (click)="restartTimer()">
+                  <p
+                    class="text-secondary fs-small cursor d-block"
+                    *ngIf="num === 0"
+                  >
+                    Resend the OTP
+                  </p>
+                </a>
+              </div>
+              <div class="fs-small">
+                <p class="text-secondary">
+                  <a class="cursor" (click)="backToLogin()">Back to Login</a>
+                </p>
+              </div>
+              <div class="get-help mt-4">
+                <p class="text-secondary">
+                  Have trouble logging in? <span><a href="#">Get Help</a></span>
+                </p>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="staticBackdrop"
+    data-bs-backdrop="static"
+    data-bs-keyboard="false"
+    tabindex="-1"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Login</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+          ></button>
+        </div>
+        <div class="modal-body">Login Successfully!</div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btnn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </ng-container>
-<!-- <app-otp [mobileNum]="mobileNum"></app-otp> -->
