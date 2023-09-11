@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { faCircleUser, faHeart, faShoppingBag, faMagnifyingGlass, faBars,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,10 +16,10 @@ export class NavbarComponent {
   menuIcon = faBars;
   logoutIcon = faArrowRightFromBracket;
 
-  constructor( private router: Router ){}
+  constructor( private router: Router, private cookie : CookieService ){}
 
   logout(){
-    sessionStorage.clear();
+    // this.cookie.deleteAll();
     this.router.navigate(['/login']);
   }
 

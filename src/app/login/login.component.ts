@@ -7,6 +7,7 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { contactNoErrors, otpNoErrors } from '../utils/utils';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -18,12 +19,16 @@ export class LoginComponent implements OnInit {
   loginForm: any;
   mobileNum = '';
   public isLoggedIn = false;
+  // Otp form data
+  num = 10;
+  interval: any;
+  otpForm: any;
 
   transferNum() {
     const mobileNum = this.loginForm.get('contactNo').value;
   }
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router, private cookie : CookieService) {}
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -57,7 +62,15 @@ export class LoginComponent implements OnInit {
   onSubmitForm() {
     this.mobileNum = this.loginForm.get('contactNo').value;
     this.isLoggedIn = true;
+    this.cookie.set('isVerified', 'true');
     this.interval = setInterval(() => this.numDecrement(this.num), 1000);
+  }
+  goToHome() {
+    const enteredOTP = this.otpForm.get('otpNo').value;
+    if (enteredOTP) {
+      this.cookie.set('isVerified', 'true');
+      this.router.navigate(['/home']);
+    }
   }
 
   mobileNumberValidation() {
@@ -66,25 +79,19 @@ export class LoginComponent implements OnInit {
       this.contactNo.setValue(this.contactNo.value.slice(0, 10)); //contactNo value aur uski lenth agr 10 se zyada hai, to wo 10 number hi lega aur baki slice krega
     }
   }
-
-  get contactNo() {
-    return this.loginForm.get('contactNo'); //  input ka pura data including validation wo return krega.
-  }
-
-  // Otp form data
-  num = 10;
-  interval: any;
-  otpForm: any;
-
   limit() {
     if (this.otpNo.value && this.otpNo.value.length > 4) {
       this.otpNo.setValue(this.otpNo.value.slice(0, 4));
     }
   }
 
+  get contactNo() {
+    return this.loginForm.get('contactNo'); //  input ka pura data including validation wo return krega.
+  }
   get otpNo() {
     return this.otpForm.get('otpNo'); //  input ka pura data including validation wo return krega.
   }
+
 
   restartTimer() {
     this.num = 10;
@@ -97,18 +104,10 @@ export class LoginComponent implements OnInit {
       clearInterval(this.interval);
     }
   }
-
-  goToHome() {
-    // this.isLoggedIn = true;
-    // this.router.navigate(['/home']);
-    const enteredOTP = this.otpForm.get('otpNo').value;
-    if (enteredOTP) {
-      sessionStorage.setItem('isVerified', 'true');
-      this.router.navigate(['/home']);
-    }
-  }
-
+  
   public backToLogin() {
     this.isLoggedIn = false;
   }
+  
+
 }
