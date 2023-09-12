@@ -6,8 +6,9 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { contactNoErrors, otpNoErrors } from '../utils/utils';
+import { contactNoErrors, otpNoErrors, } from '../utils/utils';
 import { CookieService } from 'ngx-cookie-service';
+import { login_img_url, otp_img } from '../constants/constants';
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,11 @@ export class LoginComponent implements OnInit {
   num = 10;
   interval: any;
   otpForm: any;
+
+  //imgs
+  loginImage = login_img_url;
+  otpImage = otp_img;
+
 
   transferNum() {
     const mobileNum = this.loginForm.get('contactNo').value;

@@ -22,3 +22,28 @@ export function otpNoErrors(errors: any): any {
   }
   return ''; // Return an empty string if no errors are found
 }
+// export function firstNameErrors(errors: any): any {
+//   if (errors.required) {
+//     return 'Please enter your First Name';
+//   }
+//   if (errors.minlength) {
+//     return 'Please enter your First Name';
+//   }
+//   if (errors.maxlength) {
+//     return 'Please enter your First Name';
+//   }
+//   return '';
+// }
+
+// export function lastNameErrors(errors: any): any {
+//   if (errors.required) {
+//     return 'Please enter your Last Name';
+//   }
+//   if (errors.minlength) {
+//     return 'Please enter your Last Name';
+//   }
+//   if (errors.maxlength) {
+//     return 'Please enter your Last Name';
+//   }
+//   return '';
+// }

@@ -63,12 +63,12 @@
   color: $text-color;
   z-index: 1000;
 }
-.form-control{
+.input-group .form-control{
     border-radius: 0% ;
     border: 1 px solid $black; 
     color: $text-color
 }
-.form-control.is-invalid{
+.input-group .form-control.is-invalid{
     color: $text-color
 }
 .btn {
