@@ -1,0 +1,119 @@
+@import "../style/variables";
+@import "../style/commonstyles.scss";
+
+@mixin login-area($color) {
+  text-decoration: none;
+  font-weight: 700;
+  color: $black;
+}
+@mixin no-outline($color) {
+  padding-left: 45px;
+  box-shadow: 0px 0px 6px -3px;
+  font-size: $fs-13;
+}
+// *{
+//     font-family: $font-family;
+// }
+
+.bg-blue {
+  @extend .bg-blue;
+  padding-top: 33px;
+}
+.width {
+  @extend .width;
+}
+.signup-sec {
+  @extend .secs;
+}
+.login-sec a,
+.signup-sec a {
+  @include login-area(blue);
+}
+
+.input-group {
+  position: relative;
+  display: block;
+}
+
+.input-group .form-control {
+  border-radius: 0%;
+  border: 1 px solid $black;
+  color: $text-color;
+}
+.input-group .form-control.is-invalid {
+  color: $text-color;
+}
+.btn {
+  border-radius: 0px;
+  padding: 10px 105px;
+  font-size: 12px;
+}
+.signup-sec {
+  @extend .page-box-shadow;
+}
+
+.signup-sec h5 {
+  @extend .h5;
+}
+
+.signup-sec .fs-s {
+  @extend .fs-s;
+}
+
+@media (min-width: 480px) {
+  .btn {
+    padding: 10px 185px;
+  }
+}
+
+@media (min-width: 768px) {
+  .bg-blue {
+    padding-top: 25px;
+  }
+  .margin-left {
+    margin-left: 182px;
+  }
+  .btn {
+    padding: 10px 137px;
+  }
+}
+@media (min-width: 992px) {
+  .bg-blue {
+    padding-top: 45px;
+  }
+  .margin-left {
+    margin-left: 332px;
+  }
+  .btn {
+    padding: 10px 110px;
+  }
+}
+@media (min-width: 1200px) {
+  .margin-left {
+    margin-left: 437px;
+  }
+  .btn {
+    padding: 10px 95px;
+  }
+}
+@media (min-width: 1366px) {
+  .bg-blue {
+    padding-top: 100px;
+  }
+  .margin-left {
+    margin-left: 517px;
+  }
+  .btn {
+    padding: 10px 114px;
+  }
+}
+
+.goToSignUp {
+  margin-top: 18px;
+}
+.goToSignUp .cursor2 {
+  cursor: pointer;
+  border: 1px solid #696b79;
+  padding: 2px 5px;
+  border-radius: 2px;
+}

@@ -1,13 +1,13 @@
-@import '../style/variables';
-@import '../style/commonstyles.scss';
+@import "../style/variables";
+@import "../style/commonstyles.scss";
 
-@mixin login-area($color){
-    text-decoration: none;
-    font-weight: 700;
-    color: $black;
+@mixin login-area($color) {
+  text-decoration: none;
+  font-weight: 700;
+  color: $black;
 }
-@mixin no-outline($color){
-    padding-left: 45px; 
+@mixin no-outline($color) {
+  padding-left: 45px;
   box-shadow: 0px 0px 6px -3px;
   font-size: $fs-13;
 }
@@ -15,328 +15,318 @@
 //     font-family: $font-family;
 // }
 
-.bg-blue{
-    @extend .bg-blue;
-    padding-top: 33px;
+.bg-blue {
+  @extend .bg-blue;
+  padding-top: 33px;
 }
-.width{
-    @extend .width;
+.width {
+  @extend .width;
 }
 
-.fs-small, .get-help{
-    @extend .fs-small-get-help;
+.fs-small,
+.get-help {
+  @extend .fs-small-get-help;
 }
-.login-sec, .signup-sec{
-    @extend .secs;
+.login-sec,
+.signup-sec {
+  @extend .secs;
 }
-.login-sec a, .signup-sec a{
-    @include login-area(blue)
+.login-sec a,
+.signup-sec a {
+  @include login-area(blue);
 }
 
 .input-group {
-    position: relative;
-    display: block;
+  position: relative;
+  display: block;
 }
 
-.input-group input[type="tel"]{
-  @include no-outline(blue)
+.input-group input[type="tel"] {
+  @include no-outline(blue);
 }
 
-.input-group input[type="tel"]::placeholder{
-    font-size: $fs-13;
-    color: $text-color;
+.input-group input[type="tel"]::placeholder {
+  font-size: $fs-13;
+  color: $text-color;
 }
 
 .input-before-number::before {
   content: "+91 | ";
   position: absolute;
-  left: 9px; 
+  left: 9px;
   top: 8%;
   transform: translateY(-50%);
   font-size: $fs-13;
   color: $text-color;
   z-index: 1000;
 }
-.input-group .form-control{
-    border-radius: 0% ;
-    border: 1 px solid $black; 
-    color: $text-color
+.input-group .form-control {
+  border-radius: 0%;
+  border: 1 px solid $black;
+  color: $text-color;
 }
-.input-group .form-control.is-invalid{
-    color: $text-color
+.input-group .form-control.is-invalid {
+  color: $text-color;
 }
 .btn {
-    border-radius: 0px;
-    padding: 10px 105px;
-    font-size: 12px;
+  border-radius: 0px;
+  padding: 10px 105px;
+  font-size: 12px;
 }
-.login-page .signup-sec{
-    @extend .page-box-shadow;
+.login-page .signup-sec {
+  @extend .page-box-shadow;
 }
-.login-sec h5, .signup-sec h5{
-    @extend .h5;
+.login-sec h5,
+.signup-sec h5 {
+  @extend .h5;
 }
-.login-sec .fs-s, .signup-sec .fs-s{
-    @extend .fs-s;
-}
-
-@media (min-width:480px){
-    .btn{
-        padding: 10px 185px;
-    }
-    .input-group input[type="tel"]{
-        font-size: 16px;
-    }
-    .input-group::before {
-        top: 10%;
-        
-      }
+.login-sec .fs-s,
+.signup-sec .fs-s {
+  @extend .fs-s;
 }
 
-@media (min-width:768px){
-    .bg-blue{
-        padding-top: 25px;
-    }
-    .margin-left{
-        margin-left: 182px;
-    
-    }
-    .btn{
-        padding: 10px 137px;
-    }
-}
-@media (min-width:992px){
-    .bg-blue{
-        padding-top: 45px;
-    }
-    .margin-left{
-        margin-left: 332px;
-    }
-    .btn{
-        padding: 10px 110px;
-    }
-    .input-group::before {
-        top: 9%;
-        
-    }
-}
-@media (min-width:1200px){
-    .margin-left{
-        margin-left: 437px;
-    }
-    .btn{
-        padding: 10px 95px;
-    }
-}
-@media (min-width:1366px){
-    .bg-blue{
-        padding-top: 100px;
-    }
-    .margin-left{
-        margin-left: 517px;
-    }
-    .input-group input[type="tel"]{
-        font-size: 16px;
-    }
-    .btn{
-        padding: 10px 114px;
-    }
+@media (min-width: 480px) {
+  .btn {
+    padding: 10px 185px;
+  }
+  .input-group input[type="tel"] {
+    font-size: 16px;
+  }
+  // .input-group::before {
+  //   top: 10%;
+  // }
 }
 
-
-
-
+@media (min-width: 768px) {
+  .bg-blue {
+    padding-top: 25px;
+  }
+  .margin-left {
+    margin-left: 182px;
+  }
+  .btn {
+    padding: 10px 137px;
+  }
+}
+@media (min-width: 992px) {
+  .bg-blue {
+    padding-top: 45px;
+  }
+  .margin-left {
+    margin-left: 332px;
+  }
+  .btn {
+    padding: 10px 110px;
+  }
+  .input-group::before {
+    top: 9%;
+  }
+}
+@media (min-width: 1200px) {
+  .margin-left {
+    margin-left: 437px;
+  }
+  .btn {
+    padding: 10px 95px;
+  }
+}
+@media (min-width: 1366px) {
+  .bg-blue {
+    padding-top: 100px;
+  }
+  .margin-left {
+    margin-left: 517px;
+  }
+  .input-group input[type="tel"] {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 10px 114px;
+  }
+}
 
 // otp scss
 
-@mixin otp-area($color){
-    text-decoration: none;
-    font-weight: 700;
-    color: $black;
+@mixin otp-area($color) {
+  text-decoration: none;
+  font-weight: 700;
+  color: $black;
 }
 
-.input-group > .form-control{
-    width: 40%;
-    padding: 6px 38px;
-    margin-left: 81px;
+.input-group > .form-control {
+  width: 40%;
+  padding: 6px 38px;
+  margin-left: 81px;
 }
 
-.bg-blue{
-    @extend .bg-blue;
-    padding-top: 1px;
+.bg-blue {
+  @extend .bg-blue;
+  padding-top: 1px;
 }
-.width{
-    @extend .width;
-}
-
-.fs-small, .get-help{
-    @extend .fs-small-get-help;
-}
-.otp-sec{
-    @extend .secs;
-}
-.otp-sec a{
-    @include otp-area(blue)
+.width {
+  @extend .width;
 }
 
-.input-group{
-    display: block;
+.fs-small,
+.get-help {
+  @extend .fs-small-get-help;
+}
+.otp-sec {
+  @extend .secs;
+}
+.otp-sec a {
+  @include otp-area(blue);
 }
 
-
-.form-control{
-    border-radius: 0% ;
-    border: 1 px solid $black ;
-    color: $text-color;
-    padding: 0 75px;
-    box-shadow: 0px 0px 4px -4px;
-    font-size: $fs-13;
+.input-group {
+  display: block;
 }
-.form-control.is-invalid{
-    color: $text-color;
+
+.form-control {
+  border-radius: 0%;
+  border: 1 px solid $black;
+  color: $text-color;
+  padding: 0 75px;
+  box-shadow: 0px 0px 4px -4px;
+  font-size: $fs-13;
+}
+.form-control.is-invalid {
+  color: $text-color;
 }
 .btn {
+  border-radius: 0px;
+  font-size: $fs-13;
+}
+.otp-page {
+  @extend .page-box-shadow;
+}
+.otp-sec h5 {
+  @extend .h5;
+}
+.otp-sec .fs-s {
+  @extend .fs-s;
+}
+
+.otp-img img {
+  width: 33%;
+}
+.otp-img {
+  background-color: $white;
+  padding: 21px 0px 0px 11px;
+}
+.otp-timer .cursor,
+.fs-small .cursor {
+  cursor: pointer;
+}
+.btnn {
+  border-radius: 6px;
+  font-size: 12px;
+  background-color: $bg-blue;
+  color: $black;
+}
+.modal-content {
+  background-color: $bg-blue;
+}
+
+@media (min-width: 480px) {
+  .input-group input[type="tel"] {
+    font-size: 16px;
+  }
+  .input-group > .form-control {
+    width: 64%;
+    padding: 7px 120px;
+    margin-left: 78px;
+  }
+  .btn {
     border-radius: 0px;
     font-size: $fs-13;
-}
-.otp-page{
-    @extend .page-box-shadow;
-}
-.otp-sec h5{    
-    @extend .h5;
-}
-.otp-sec .fs-s{
-    @extend .fs-s;
-}
-
-.otp-img img{
-    width: 33%;
-}
-.otp-img{
-    background-color: $white;
-    padding: 21px 0px 0px 11px;
-}
-.otp-timer .cursor, .fs-small .cursor{
-    cursor: pointer;
-}
-.btnn{
+    padding: 7px 116px;
+  }
+  .modal-footer .btnn {
     border-radius: 6px;
     font-size: 12px;
+    padding: 7px 30px;
     background-color: $bg-blue;
     color: $black;
-}
-.modal-content{
-    background-color: $bg-blue;
+  }
 }
 
-
-@media (min-width:480px){
-    .input-group input[type="tel"]{
-        font-size: 16px;
-    }
-    .input-group > .form-control{
-        width: 64%;
-        padding: 7px 120px;
-        margin-left: 78px;
-    }
-    .btn {
-        border-radius: 0px;
-        font-size: $fs-13;
-        padding: 7px 116px;
-    }
-    .modal-footer .btnn{
-        border-radius: 6px;
-        font-size: 12px;
-        padding: 7px 30px;
-        background-color: $bg-blue;
-        color: $black;
-    }
+@media (min-width: 576px) {
+  .ms-4 {
+    margin-left: 6.1rem !important;
+  }
+  .input-group > .form-control {
+    width: 64%;
+    padding: 7px 150px;
+    margin-left: 98px;
+  }
+  .modal-dialog {
+    max-width: 400px;
+  }
 }
 
-@media (min-width:576px){
-    .ms-4 {
-        margin-left: 6.1rem !important;
-      }
-      .input-group > .form-control{
-        width: 64%;
-        padding: 7px 150px;
-        margin-left: 98px;
-    }  
-    .modal-dialog {
-        max-width: 400px;
-        
-      }
+@media (min-width: 768px) {
+  .bg-blue {
+    padding-top: 25px;
+  }
+  .margin-left {
+    margin-left: 182px;
+  }
+  .input-group > .form-control {
+    padding: 7px 90px;
+    margin-left: 60px;
+  }
+  .btn {
+    padding: 7px 85px;
+  }
+}
+@media (min-width: 992px) {
+  .bg-blue {
+    padding-top: 45px;
+  }
+  .margin-left {
+    margin-left: 332px;
+  }
+  .input-group > .form-control {
+    width: 76%;
+    padding: 7px 90px;
+    margin-left: 34px;
+  }
+}
+@media (min-width: 1200px) {
+  .margin-left {
+    margin-left: 437px;
+  }
+  .input-group > .form-control {
+    width: 86%;
+    padding: 7px 93px;
+    margin-left: 18px;
+  }
+}
+@media (min-width: 1366px) {
+  .margin-left {
+    margin-left: 517px;
+  }
+  .input-group input[type="tel"] {
+    font-size: 16px;
+  }
+  .btn {
+    padding: 7px 102px;
+  }
+  .input-group > .form-control {
+    padding: 7px 104px;
+  }
+  .input-group > .form-control {
+    margin-left: 19px;
+  }
 }
 
-@media (min-width:768px){
-    .bg-blue{
-        padding-top: 25px;
-    }
-    .margin-left{
-        margin-left: 182px;
-    
-    }
-    .input-group > .form-control{
-        padding: 7px 90px;
-        margin-left: 60px;
-    }
-    .btn{
-        padding: 7px 85px;
-    }
-    
+.goToSignUp {
+  margin-top: 18px;
 }
-@media (min-width:992px){
-    .bg-blue{
-        padding-top: 45px;
-    }
-    .margin-left{
-        margin-left: 332px;
-    }
-    .input-group > .form-control{
-        width: 76%;
-        padding: 7px 90px;
-        margin-left: 34px;
-    }
-    
+.goToSignUp .cursor2 {
+  cursor: pointer;
+  border: 1px solid #696b79;
+  padding: 2px 5px;
+  border-radius: 2px;
 }
-@media (min-width:1200px){
-    .margin-left{
-        margin-left: 437px;
-    }
-    .input-group > .form-control{
-        width: 86%;
-        padding: 7px 93px;
-        margin-left: 18px;
-    }
-    
-}
-@media (min-width:1366px){
-    .margin-left{
-        margin-left: 517px;
-    }
-    .input-group input[type="tel"]{
-        font-size: 16px;
-    }
-    .btn{
-        padding: 7px 102px;
-    }
-    .input-group > .form-control{
-        padding: 7px 104px;
-    }
-    .input-group > .form-control{
-        margin-left: 19px;
-    }
-}
-
-.goToSignUp{
-    margin-top: 18px;
-}
-.goToSignUp .cursor2{
-    cursor: pointer;
-    border: 1px solid #696b79;
-    padding: 2px 5px;
-    border-radius: 2px;
-}
-
-
-

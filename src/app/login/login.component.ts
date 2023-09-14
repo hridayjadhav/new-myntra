@@ -6,7 +6,11 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { addressErrors, contactNo1Errors, contactNoErrors, emailErrors, firstNameErrors, lastNameErrors, otpNoErrors, } from '../utils/utils';
+import {
+  contactNoErrors,
+  passwordErrors,
+  otpNoErrors,
+} from '../utils/utils';
 import { CookieService } from 'ngx-cookie-service';
 import { login_img_url, otp_img } from '../constants/constants';
 
@@ -19,31 +23,39 @@ export class LoginComponent implements OnInit {
   // Login Form data
   loginForm: any;
   mobileNum = '';
-  mobileNum1 = '';     //each thing which have 1 infront of he property or etc, its bcz of signup mobile number
   public isLoggedIn = false;
+  public showPasswordInput = false;
+  public loggingInWithPassword = false; // Flag to indicate logging in with both mobile and password
+
+
   // Otp form data
   num = 10;
   interval: any;
   otpForm: any;
-  //sign up data
-  signupForm : any;
-  public isSignUp = false;  
-
+  
+  // Use userDataConst as the database
+  userDataArray: any;
+  
   //imgs
   loginImage = login_img_url;
   otpImage = otp_img;
 
-
   transferNum() {
     const mobileNum = this.loginForm.get('contactNo').value;
   }
-  transferNum1() {
-    const mobileNum1 = this.signupForm.get('contactNo1').value;
-  }
+  
 
-  constructor(private fb: FormBuilder, private router: Router, private cookie : CookieService) {}
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private cookie: CookieService,
+  ) {}
 
   ngOnInit(): void {
+    const userDataJson = localStorage.getItem('userData');
+    if (userDataJson) {
+      this.userDataArray = JSON.parse(userDataJson);
+    }
     this.loginForm = this.fb.group({
       contactNo: [
         '',
@@ -53,20 +65,7 @@ export class LoginComponent implements OnInit {
           Validators.maxLength(10),
         ],
       ],
-    });
-    this.signupForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      address: ['', [Validators.required, Validators.minLength(10)]],
-      contactNo1: [
-        '',
-        [
-          Validators.required,
-          Validators.minLength(10),
-          Validators.maxLength(10),
-        ],
-      ],
+      password: ['', [Validators.required]],
     });
     this.otpForm = new FormGroup({
       otpNo: new FormControl('', [
@@ -81,23 +80,9 @@ export class LoginComponent implements OnInit {
   getContactNumberErrorMessage(): any {
     return contactNoErrors(this.contactNo.errors);
   }
-  getContact1NumberErrorMessage(): any {
-    return contactNo1Errors(this.contactNo1.errors);
-  }
 
-  getFirstNameErrorMessage(): any {
-    return firstNameErrors(this.firstName.errors);
-  }
-
-  getLastNameErrorMessage(): any {
-    return lastNameErrors(this.lastName.errors);
-  }
-  getEmailErrorMessage():any{
-    return emailErrors(this.email.errors);
-  }
-
-  getAddressErrorMessage():any{
-    return addressErrors(this.address.errors)
+  getPasswordErrorMessage() {
+    return passwordErrors(this.password.errors);
   }
 
   getOtpErrorMessage(): any {
@@ -106,21 +91,29 @@ export class LoginComponent implements OnInit {
 
   onSubmitForm() {
     this.mobileNum = this.loginForm.get('contactNo').value;
-    this.isLoggedIn = true;
-    this.cookie.set('isVerified', 'true');
-    this.interval = setInterval(() => this.numDecrement(this.num), 1000);
-  }
-
-  onSignupSubmit() {
-    const firstName = this.signupForm.get('firstName').value;
-    const lastName = this.signupForm.get('lastName').value;
-    const email = this.signupForm.get('email').value;
-    const address = this.signupForm.get('address').value;
-    this.mobileNum1 = this.signupForm.get('contactNo1').value;
-    this.cookie.set('isVerified', 'true');
-    this.isSignUp = false;
-    this.isLoggedIn = true;
-    this.restartTimer();
+    const password = this.loginForm.get('password').value; 
+    if(password){
+      const user = this.userDataArray.find(
+        (userData: any) => userData.mobile_number === this.mobileNum
+      );
+      if(user){
+        this.isLoggedIn = true;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.interval = setInterval(() => this.numDecrement(this.num), 1000);
+        
+      }else{
+        alert('error');
+      }
+    } else {
+      const user = this.userDataArray.find(
+        (userData: any) => userData.mobile_number === this.mobileNum
+      );
+      if (user) {
+        this.isLoggedIn = true;
+      } else {
+        alert('mobile number is not registred');
+      }
+    }
   }
 
   goToHome() {
@@ -137,12 +130,7 @@ export class LoginComponent implements OnInit {
       this.contactNo.setValue(this.contactNo.value.slice(0, 10)); //contactNo value aur uski lenth agr 10 se zyada hai, to wo 10 number hi lega aur baki slice krega
     }
   }
-  mobileNumberValidation1() {
-    if (this.contactNo1.value && this.contactNo1.value.length > 10) {
-      //if the number is more than 10, then the slice will show only 10 digits and it will automatically removes remaining digits.
-      this.contactNo1.setValue(this.contactNo1.value.slice(0, 10)); //contactNo value aur uski lenth agr 10 se zyada hai, to wo 10 number hi lega aur baki slice krega
-    }
-  }
+  
   limit() {
     if (this.otpNo.value && this.otpNo.value.length > 4) {
       this.otpNo.setValue(this.otpNo.value.slice(0, 4));
@@ -152,25 +140,12 @@ export class LoginComponent implements OnInit {
   get contactNo() {
     return this.loginForm.get('contactNo'); //  input ka pura data including validation wo return krega.
   }
-  get contactNo1() {
-    return this.signupForm.get('contactNo1'); //  input ka pura data including validation wo return krega.
-  }
-  get firstName(){
-    return   this.signupForm.get("firstName");//input ka pura data including validation wo return krega.
-  }
-  get lastName(){
-    return this.signupForm.get('lastName');
-  }
-  get email (){
-    return this.signupForm.get('email');
-  }
-  get address (){
-    return this.signupForm.get('address');
+  get password() {
+    return this.loginForm.get('password');
   }
   get otpNo() {
-    return this.otpForm.get('otpNo'); //  input ka pura data including validation wo return krega.
+    return this.otpForm.get('otpNo');
   }
-
 
   restartTimer() {
     this.num = 10;
@@ -183,18 +158,18 @@ export class LoginComponent implements OnInit {
       clearInterval(this.interval);
     }
   }
-  
+
   public backToLogin() {
     this.isLoggedIn = false;
-    this.isSignUp = false;
-  }
-  public backToSignup() {
-    this.isSignUp = true;
   }
 
-  switchToSignUp() {
-    this.isSignUp = true;
+  public switchToSignUp(){
+    this.router.navigate(['/signup']);
+  }
+  onContinueClick() {
+    // Perform any necessary validation or processing of contactNo here
+    // After validation, show the password input
+    this.showPasswordInput = true;
   }
   
-
 }

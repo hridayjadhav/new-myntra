@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { faCircleUser, faHeart, faShoppingBag, faMagnifyingGlass, faBars,faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
-import { login_img_url, nav_img_url } from '../constants/constants';
+import { nav_img_url } from '../constants/constants';
 
 @Component({
   selector: 'app-navbar',
@@ -20,7 +20,7 @@ export class NavbarComponent {
   //imgs
   logoImage = nav_img_url;
 
-  constructor( private router: Router, private cookie : CookieService ){}
+  constructor( private router: Router, private cookie : CookieService){}
 
   logout(){
     this.cookie.deleteAll();

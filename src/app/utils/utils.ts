@@ -10,6 +10,15 @@ export function contactNoErrors(errors: any): any {
   }
   return '';
 }
+export function passwordErrors(errors: any): any {
+  if (errors.required) {
+    return 'Please Enter A Valid Password';
+  }
+  if (errors.minlength) {
+    return 'Please Enter A Valid Mobile Number (5)';
+  }
+  return '';
+}
 export function otpNoErrors(errors: any): any {
   if (errors.required) {
     return 'Please Enter A Valid OTP';
@@ -76,6 +85,12 @@ export function contactNo1Errors(errors: any): any {
   }
   if (errors.maxlength) {
     return 'Please Enter A Valid Mobile Number (10 digits)';
+  }
+  return '';
+}
+export function genderErrors(errors: any): any {
+  if (errors.required) {
+    return 'Please Enter A Valid Gender';
   }
   return '';
 }
