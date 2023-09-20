@@ -73,6 +73,7 @@
               </div>
               <div class="button text-center">
                 <button
+                  [disabled]="(showPasswordInput && loginForm.invalid) || (!showPasswordInput && !loginForm.get('contactNo').valid)"
                   type="submit"
                   class="btn btn-secondary text-uppercase fw-bold"
                 >

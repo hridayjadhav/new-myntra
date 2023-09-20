@@ -1,21 +1,21 @@
 export const userDataConst = [
     {
     "id": 1,
-    "name": "John Doe",
+    "name": "Aditi Kumari",
     "address": "123 Main Street, Cityville, USA",
     "email": "[johndoe@example.com](mailto:johndoe@example.com)",
     "gender": "Male",
     "mobile_number": "9999955555",
-    "password": '12345'
+    "password": 'aditi'
     },
     {
     "id": 2,
-    "name": "Jane Smith",
+    "name": "Rohit Kudalkar",
     "address": "456 Elm Street, Townsville, USA",
     "email": "[janesmith@example.com](mailto:janesmith@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 123-4567",
-    "password": '123456'
+    "mobile_number": "8888844444",
+    "password": 'rohit'
     },
     {
     "id": 3,
@@ -24,7 +24,7 @@ export const userDataConst = [
     "email": "hriday@fluid.live",
     "gender": "Male",
     "mobile_number": "9545998752",
-    "password": '1234567'
+    "password": 'hriday'
     },
     {
     "id": 4,

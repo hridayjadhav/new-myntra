@@ -94,22 +94,29 @@ export class LoginComponent implements OnInit {
     const password = this.loginForm.get('password').value; 
     if(password){
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum
+        (userData: any) => userData.mobile_number === this.mobileNum,
+
       );
       if(user){
-        this.isLoggedIn = true;
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.interval = setInterval(() => this.numDecrement(this.num), 1000);
+        if(user.password === password){
+          this.isLoggedIn = true;
+          localStorage.setItem('currentUser', JSON.stringify(user));
+          this.interval = setInterval(() => this.numDecrement(this.num), 1000);
+        }else{
+          alert('Incorrect password');
+        }
         
       }else{
-        alert('error');
+        alert('Incorrect Details');
       }
     } else {
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum
+        (userData: any) => userData.mobile_number === this.mobileNum,
       );
       if (user) {
         this.isLoggedIn = true;
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.interval = setInterval(() => this.numDecrement(this.num), 1000);
       } else {
         alert('mobile number is not registred');
       }
@@ -167,7 +174,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
   onContinueClick() {
-    // Perform any necessary validation or processing of contactNo here
     // After validation, show the password input
     this.showPasswordInput = true;
   }

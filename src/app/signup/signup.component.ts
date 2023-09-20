@@ -97,16 +97,16 @@ export class SignupComponent {
         gender: this.signupForm.get('gender').value,
         mobile_number: this.signupForm.get('contactNo1').value,
         password: this.signupForm.get('password').value,
-      };
+      };  //to store information about the user
 
-
+      const userDataConst = JSON.parse(localStorage.getItem('userData')!);  //parse : To use it as an array { ! :- shows that it is not null } 
       // Push user data to the array
-      this.userDataConst.push(userData);
-      console.log("data after push", this.userDataConst);
-      this.router.navigate(['/home']);
-      localStorage.setItem('userData', JSON.stringify(this.userDataConst));
-      localStorage.setItem('currentUser', JSON.stringify(userData));
-      this.cookie.set('isVerified', 'true');
+      userDataConst.push(userData);  //pushes the userData object into an array called userDataConst.
+      console.log("data after push", this.userDataConst); 
+      this.router.navigate(['/home']);   //if the user is valid, so the home will be navigated.
+      localStorage.setItem('userData', JSON.stringify(userDataConst));  //this line stores userDataConst array in the browser's localStorage, and we use JSON stringify to convert it into string, bcz localStorage only store strings
+      localStorage.setItem('currentUser', JSON.stringify(userData)); //This line stores the userData object for the currently signed-in user in the local storage under the key 'currentUser'.
+      this.cookie.set('isVerified', 'true'); // it is set true when the user will login, then the otp will popOut
     }
 
   }
@@ -136,10 +136,6 @@ export class SignupComponent {
   get password() {
     return this.signupForm.get('password'); 
   }
-
- 
-
-
 
 
 }

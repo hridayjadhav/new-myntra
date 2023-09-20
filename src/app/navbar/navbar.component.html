@@ -30,10 +30,31 @@
       <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
       <input type="search" placeholder="Search for products,brands and more" />
     </div>
-    <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3">
-      <a href="#"
+    <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3 collapse">
+      <div class="nav-item dropdown">
+        <a href="#" class="nav-link dropdown-toggle btn-sm" role="button" data-bs-toggle="dropdown"
         ><fa-icon class="me-xl-1 ms-lg-3" [icon]="userIcon"></fa-icon>Profile</a
       >
+      <ul class="dropdown-menu mt-2">
+        <li class="mt-2"><span class="dropdown-item text-dark fw-normal">Welcome, {{userData.name}}</span></li>
+        <li><span class="dropdown-item text-dark fw-normal">{{userData.mobile_number}}</span></li>
+        <li><div class="divider my-3"></div></li>
+        <li><a href="#" class="dropdown-item">Output</a></li>
+        <li><a href="#" class="dropdown-item">Wishlist</a></li>
+        <li><a href="#" class="dropdown-item">Gift Cards</a></li>
+        <li><a href="#" class="dropdown-item">Contact Us</a></li>
+        <li><a href="#" class="dropdown-item">Myntra Insider</a></li>
+        <li><div class="divider my-3"></div></li>
+        <li>
+          <a class="logoutBtn dropdown-item d-none d-lg-block" (click)="logout()">Logout</a>
+        </li>
+        
+        
+      </ul>
+      
+      
+      </div>
+      
       <a href="#"
         ><fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="heartIcon"></fa-icon
         >Wishlist</a
@@ -91,8 +112,9 @@
         </div>
       </div>
     </div>
-    <a class="logoutBtn d-none d-lg-block" (click)="logout()">
+    <!-- <a class="logoutBtn d-none d-lg-block" (click)="logout()">
       <fa-icon class="fs-4" [icon]="logoutIcon"></fa-icon>
-    </a>
+    </a> -->
   </div>
 </nav>
+
