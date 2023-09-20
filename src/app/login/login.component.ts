@@ -6,13 +6,10 @@ import {
   FormControl,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  contactNoErrors,
-  passwordErrors,
-  otpNoErrors,
-} from '../utils/utils';
+import { contactNoErrors, passwordErrors, otpNoErrors } from '../utils/utils';
 import { CookieService } from 'ngx-cookie-service';
 import { login_img_url, otp_img } from '../constants/constants';
+import { otpConst } from '../constants/otpConst';
 
 @Component({
   selector: 'app-login',
@@ -25,30 +22,27 @@ export class LoginComponent implements OnInit {
   mobileNum = '';
   public isLoggedIn = false;
   public showPasswordInput = false;
-  public loggingInWithPassword = false; // Flag to indicate logging in with both mobile and password
-
+  public loggingInWithPassword = false; // indicate logging in with both mobile and password
+  showOTPCountdown = true;
+  showResendOTPButton = false;
 
   // Otp form data
   num = 10;
   interval: any;
   otpForm: any;
-  
+
   // Use userDataConst as the database
   userDataArray: any;
-  
+ otpArray = otpConst;
+
   //imgs
   loginImage = login_img_url;
   otpImage = otp_img;
 
-  transferNum() {
-    const mobileNum = this.loginForm.get('contactNo').value;
-  }
-  
-
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private cookie: CookieService,
+    private cookie: CookieService
   ) {}
 
   ngOnInit(): void {
@@ -77,7 +71,7 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  getContactNumberErrorMessage(): any {
+  getContactNumberErrorMessage(): any {    //this is to get the error message from the utils.
     return contactNoErrors(this.contactNo.errors);
   }
 
@@ -90,34 +84,36 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.mobileNum = this.loginForm.get('contactNo').value;
-    const password = this.loginForm.get('password').value; 
-    if(password){
+    this.mobileNum = this.loginForm.get('contactNo').value;   //it will extract the number entered by the user in the login form.
+    const password = this.loginForm.get('password').value;   //and it will extract the password
+    //Check if a password is entered
+    if (password) {
+      //it will find in the array, and see the matched mobile number entered via user.
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum,
-
+        (userData: any) => userData.mobile_number === this.mobileNum
       );
-      if(user){
-        if(user.password === password){
-          this.isLoggedIn = true;
-          localStorage.setItem('currentUser', JSON.stringify(user));
-          this.interval = setInterval(() => this.numDecrement(this.num), 1000);
-        }else{
+      if (user) {
+        //it will check that the user's password is matched
+        if (user.password === password) {
+          this.isLoggedIn = true;  //then it will show the otp page.
+          localStorage.setItem('currentUser', JSON.stringify(user));   //it will store the data of user's object key ( currentUser ).
+          this.interval = setInterval(() => this.numDecrement(this.num), 1000);  // it is to resent otp timer.
+        } else {
           alert('Incorrect password');
         }
-        
-      }else{
+      } else {
         alert('Incorrect Details');
       }
     } else {
+      //here If user will not use the pwd, so it will find the user's data via mobile number.
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum,
+        (userData: any) => userData.mobile_number === this.mobileNum
       );
       if (user) {
-        this.isLoggedIn = true;
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        this.interval = setInterval(() => this.numDecrement(this.num), 1000);
-      } else {
+        this.isLoggedIn = true;   //it will show the otp page.
+        localStorage.setItem('currentUser', JSON.stringify(user));  //stored the user's object.
+        this.interval = setInterval(() => this.numDecrement(this.num), 1000);  //otp timer
+      } else { 
         alert('mobile number is not registred');
       }
     }
@@ -125,9 +121,12 @@ export class LoginComponent implements OnInit {
 
   goToHome() {
     const enteredOTP = this.otpForm.get('otpNo').value;
-    if (enteredOTP) {
-      this.cookie.set('isVerified', 'true');
-      this.router.navigate(['/home']);
+    const isOtpValid = this.otpArray.includes(enteredOTP); //include will check that specific value of enteredOTP exist or not, if yes then it is true otherwise false.
+    if (isOtpValid) { //isOtpValid will be true if (enteredOTP) is found in the (otpArray) 
+      this.cookie.set('isVerified', 'true'); //it is set true when the user will login successfully, then the otp will popOut
+      this.router.navigate(['/home']); //and then redirect tot the home.
+    }else{
+      alert('Incorrect OTP');
     }
   }
 
@@ -137,13 +136,14 @@ export class LoginComponent implements OnInit {
       this.contactNo.setValue(this.contactNo.value.slice(0, 10)); //contactNo value aur uski lenth agr 10 se zyada hai, to wo 10 number hi lega aur baki slice krega
     }
   }
-  
+
   limit() {
     if (this.otpNo.value && this.otpNo.value.length > 4) {
       this.otpNo.setValue(this.otpNo.value.slice(0, 4));
     }
   }
 
+  //getter methods allow you to access form controls more easily in the component.
   get contactNo() {
     return this.loginForm.get('contactNo'); //  input ka pura data including validation wo return krega.
   }
@@ -157,12 +157,16 @@ export class LoginComponent implements OnInit {
   restartTimer() {
     this.num = 10;
     this.interval = setInterval(() => this.numDecrement(this.num), 1000);
+    this.showOTPCountdown = true; // Show the countdown
+    this.showResendOTPButton = false; // Hide the Resend OTP button
   }
 
   numDecrement(numRecieved: number) {
     this.num--;
     if (this.num === 0) {
       clearInterval(this.interval);
+      this.showOTPCountdown = false; // Hide the countdown when it reaches 0
+      this.showResendOTPButton = true; // Show the Resend OTP button
     }
   }
 
@@ -170,12 +174,11 @@ export class LoginComponent implements OnInit {
     this.isLoggedIn = false;
   }
 
-  public switchToSignUp(){
+  public switchToSignUp() {
     this.router.navigate(['/signup']);
   }
   onContinueClick() {
-    // After validation, show the password input
+    // showing the password input
     this.showPasswordInput = true;
   }
-  
 }

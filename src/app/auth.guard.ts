@@ -6,7 +6,7 @@ export const authGuard: CanActivateFn = (route, state) => {
   let _router = inject(Router);
   let _cookie = inject(CookieService);
   const isVerified = _cookie.get('isVerified') === 'true';
-  const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+  const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');  // if currentUer will give false value, then the default value will be {}.
  
   // console.log('AuthGuard executed. isVerified:', isVerified);
   if(!isVerified || !currentUser){

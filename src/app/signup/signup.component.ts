@@ -25,9 +25,7 @@ export class SignupComponent {
   signupForm: any;
   mobileNum1 = '';
   private userDataConst= userDataConst;
-  transferNum1() {
-    const mobileNum1 = this.signupForm.get('contactNo1').value;
-  }
+  
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -62,7 +60,7 @@ export class SignupComponent {
     });
   }
   getContact1NumberErrorMessage(): any {
-    return contactNo1Errors(this.contactNo1.errors);
+    return contactNo1Errors(this.contactNo1.errors);  //here we've called the getter contactNo1. to call the formControl and show the error.
   }
 
   getFirstNameErrorMessage(): any {
@@ -97,7 +95,7 @@ export class SignupComponent {
         gender: this.signupForm.get('gender').value,
         mobile_number: this.signupForm.get('contactNo1').value,
         password: this.signupForm.get('password').value,
-      };  //to store information about the user
+      };  //to get the information about the user
 
       const userDataConst = JSON.parse(localStorage.getItem('userData')!);  //parse : To use it as an array { ! :- shows that it is not null } 
       // Push user data to the array
@@ -115,6 +113,9 @@ export class SignupComponent {
       this.contactNo1.setValue(this.contactNo1.value.slice(0, 10));
     }
   }
+  
+  ////getter methods allow you to access form controls more easily in the component. 
+  // Instead of repeatedly calling [ this.signupForm.get(' ') ] we define this getter, we can use it wherever we want now
   get contactNo1() {
     return this.signupForm.get('contactNo1');
   }
