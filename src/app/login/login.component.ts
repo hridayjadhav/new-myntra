@@ -19,7 +19,7 @@ import { otpConst } from '../constants/otpConst';
 export class LoginComponent implements OnInit {
   // Login Form data
   loginForm: any;
-  mobileNum = '';
+  loginMobileNumber = '';
   public isLoggedIn = false;
   public showPasswordInput = false;
   public loggingInWithPassword = false; // indicate logging in with both mobile and password
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
 
   // Use userDataConst as the database
   userDataArray: any;
- otpArray = otpConst;
+  otpArrayConst = otpConst;
 
   //imgs
   loginImage = login_img_url;
@@ -84,13 +84,13 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmitForm() {
-    this.mobileNum = this.loginForm.get('contactNo').value;   //it will extract the number entered by the user in the login form.
-    const password = this.loginForm.get('password').value;   //and it will extract the password
+    this.loginMobileNumber = this.contactNo.value;   //it will extract the number entered by the user in the login form.
+    const password = this.password.value;   //and it will extract the password
     //Check if a password is entered
     if (password) {
       //it will find in the array, and see the matched mobile number entered via user.
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum
+        (userData: any) => userData.arrayMobileNumber === this.loginMobileNumber
       );
       if (user) {
         //it will check that the user's password is matched
@@ -107,7 +107,7 @@ export class LoginComponent implements OnInit {
     } else {
       //here If user will not use the pwd, so it will find the user's data via mobile number.
       const user = this.userDataArray.find(
-        (userData: any) => userData.mobile_number === this.mobileNum
+        (userData: any) => userData.arrayMobileNumber === this.loginMobileNumber 
       );
       if (user) {
         this.isLoggedIn = true;   //it will show the otp page.
@@ -119,9 +119,9 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  goToHome() {
-    const enteredOTP = this.otpForm.get('otpNo').value;
-    const isOtpValid = this.otpArray.includes(enteredOTP); //include will check that specific value of enteredOTP exist or not, if yes then it is true otherwise false.
+  onOTPForm() {
+    const enteredOTP = this.otpNo.value;
+    const isOtpValid = this.otpArrayConst.includes(enteredOTP); //include will check that specific value of enteredOTP exist or not, if yes then it is true otherwise false.
     if (isOtpValid) { //isOtpValid will be true if (enteredOTP) is found in the (otpArray) 
       this.cookie.set('isVerified', 'true'); //it is set true when the user will login successfully, then the otp will popOut
       this.router.navigate(['/home']); //and then redirect tot the home.
@@ -178,7 +178,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/signup']);
   }
   onContinueClick() {
-    // showing the password input
-    this.showPasswordInput = true;
+    this.showPasswordInput = true;  // showing the password input
   }
 }

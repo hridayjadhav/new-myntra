@@ -5,7 +5,7 @@ export const userDataConst = [
     "address": "123 Main Street, Cityville, USA",
     "email": "[johndoe@example.com](mailto:johndoe@example.com)",
     "gender": "Male",
-    "mobile_number": "9999955555",
+    "arrayMobileNumber": "9999955555",
     "password": 'aditi'
     },
     {
@@ -14,7 +14,7 @@ export const userDataConst = [
     "address": "456 Elm Street, Townsville, USA",
     "email": "[janesmith@example.com](mailto:janesmith@example.com)",
     "gender": "Female",
-    "mobile_number": "8888844444",
+    "arrayMobileNumber": "8888844444",
     "password": 'rohit'
     },
     {
@@ -23,7 +23,7 @@ export const userDataConst = [
     "address": "789 Oak Street, Villagetown, USA",
     "email": "hriday@fluid.live",
     "gender": "Male",
-    "mobile_number": "9545998752",
+    "arrayMobileNumber": "9545998752",
     "password": 'hriday'
     },
     {
@@ -32,7 +32,7 @@ export const userDataConst = [
     "address": "101 Pine Street, Hamletville, USA",
     "email": "[marywilliams@example.com](mailto:marywilliams@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 567-8901",
+    "arrayMobileNumber": "+1 (555) 567-8901",
     "password": '12345678'
     },
     {
@@ -41,7 +41,7 @@ export const userDataConst = [
     "address": "567 Cedar Avenue, Riverside, USA",
     "email": "[jamesbrown@example.com](mailto:jamesbrown@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 234-5678",
+    "arrayMobileNumber": "+1 (555) 234-5678",
     "password": '123456789'
     },
     {
@@ -50,7 +50,7 @@ export const userDataConst = [
     "address": "876 Maple Lane, Suburbia, USA",
     "email": "[lindadavis@example.com](mailto:lindadavis@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 876-5432",
+    "arrayMobileNumber": "+1 (555) 876-5432",
     "password": '1234567890'
     },
     {
@@ -59,7 +59,7 @@ export const userDataConst = [
     "address": "234 Birch Road, Countryside, USA",
     "email": "[williamsmith@example.com](mailto:williamsmith@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 345-6789",
+    "arrayMobileNumber": "+1 (555) 345-6789",
     "password": '01234'
     },
     {
@@ -68,7 +68,7 @@ export const userDataConst = [
     "address": "789 Pine Lane, Beachtown, USA",
     "email": "[emilytaylor@example.com](mailto:emilytaylor@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 789-0123",
+    "arrayMobileNumber": "+1 (555) 789-0123",
     "password": '012345'
     },
     {
@@ -77,7 +77,7 @@ export const userDataConst = [
     "address": "345 Oak Avenue, Forestville, USA",
     "email": "[michaelwhite@example.com](mailto:michaelwhite@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 901-2345",
+    "arrayMobileNumber": "+1 (555) 901-2345",
     "password": '0123456'
     },
     {
@@ -86,7 +86,7 @@ export const userDataConst = [
     "address": "678 Maple Street, Mountainside, USA",
     "email": "[oliviajohnson@example.com](mailto:oliviajohnson@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 123-4567",
+    "arrayMobileNumber": "+1 (555) 123-4567",
     "password": '01234567'
     },
     {
@@ -95,7 +95,7 @@ export const userDataConst = [
     "address": "123 Birch Lane, Hillville, USA",
     "email": "[davidanderson@example.com](mailto:davidanderson@example.com)",
     "gender": "Male",
-    "mobile_number": "9689516884",
+    "arrayMobileNumber": "9689516884",
     "password": '012345678'
     },
     {
@@ -104,7 +104,7 @@ export const userDataConst = [
     "address": "456 Cedar Road, Lakeside, USA",
     "email": "[sophiamartinez@example.com](mailto:sophiamartinez@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 345-6789",
+    "arrayMobileNumber": "+1 (555) 345-6789",
     "password": '0123456789'
     },
     {
@@ -113,7 +113,7 @@ export const userDataConst = [
     "address": "789 Elm Lane, Meadowville, USA",
     "email": "[josephlee@example.com](mailto:josephlee@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 456-7890",
+    "arrayMobileNumber": "+1 (555) 456-7890",
     "password": '00123'
     },
     {
@@ -122,7 +122,7 @@ export const userDataConst = [
     "address": "101 Pine Road, Riverside, USA",
     "email": "[emmawilson@example.com](mailto:emmawilson@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 567-8901",
+    "arrayMobileNumber": "+1 (555) 567-8901",
     "password": '001234'
     },
     {
@@ -131,7 +131,7 @@ export const userDataConst = [
     "address": "567 Oak Avenue, Hillside, USA",
     "email": "[danielclark@example.com](mailto:danielclark@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 678-9012",
+    "arrayMobileNumber": "+1 (555) 678-9012",
     "password": '0012345'
     },
     {
@@ -140,7 +140,7 @@ export const userDataConst = [
     "address": "876 Cedar Lane, Countryside, USA",
     "email": "[avalewis@example.com](mailto:avalewis@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 789-0123",
+    "arrayMobileNumber": "+1 (555) 789-0123",
     "password": '00123456'
     },
     {
@@ -149,7 +149,7 @@ export const userDataConst = [
     "address": "234 Elm Road, Beachville, USA",
     "email": "[matthewturner@example.com](mailto:matthewturner@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 890-1234",
+    "arrayMobileNumber": "+1 (555) 890-1234",
     "password": '001234567'
     },
     {
@@ -158,7 +158,7 @@ export const userDataConst = [
     "address": "789 Maple Street, Forestville, USA",
     "email": "[chloeadams@example.com](mailto:chloeadams@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 901-2345",
+    "arrayMobileNumber": "+1 (555) 901-2345",
     "password": '0012345678'
     },
     {
@@ -167,7 +167,7 @@ export const userDataConst = [
     "address": "345 Birch Lane, Lakeside, USA",
     "email": "[christopherhall@example.com](mailto:christopherhall@example.com)",
     "gender": "Male",
-    "mobile_number": "+1 (555) 012-3456",
+    "arrayMobileNumber": "+1 (555) 012-3456",
     "password": '00012'
     },
     {
@@ -176,7 +176,7 @@ export const userDataConst = [
     "address": "678 Cedar Road, Meadowville, USA",
     "email": "[gracenelson@example.com](mailto:gracenelson@example.com)",
     "gender": "Female",
-    "mobile_number": "+1 (555) 123-4567",
+    "arrayMobileNumber": "+1 (555) 123-4567",
     "password": '000123'
     }
     ];

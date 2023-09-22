@@ -24,7 +24,7 @@ import { userDataConst } from '../constants/userData.const';
 export class SignupComponent {
   signupForm: any;
   mobileNum1 = '';
-  private userDataConst= userDataConst;
+  private userDataConst = userDataConst;
   
   constructor(
     private fb: FormBuilder,
@@ -86,15 +86,15 @@ export class SignupComponent {
   }
 
   onSignupSubmit() {
-    if (this.signupForm.valid) {   
+    
       const userData = {
         id: this.userDataConst.length + 1, // Generate a unique ID
-        name: `${this.signupForm.get('firstName').value} ${this.signupForm.get('lastName').value}`,
-        email: this.signupForm.get('email').value,
-        address: this.signupForm.get('address').value,
-        gender: this.signupForm.get('gender').value,
-        mobile_number: this.signupForm.get('contactNo1').value,
-        password: this.signupForm.get('password').value,
+        name: `${this.firstName.value} ${this.lastName.value}`,
+        email: this.email.value,
+        address: this.address.value,
+        gender: this.gender.value,
+        arrayMobileNumber: this.contactNo1.value,
+        password: this.password.value,
       };  //to get the information about the user
 
       const userDataConst = JSON.parse(localStorage.getItem('userData')!);  //parse : To use it as an array { ! :- shows that it is not null } 
@@ -105,7 +105,7 @@ export class SignupComponent {
       localStorage.setItem('userData', JSON.stringify(userDataConst));  //this line stores userDataConst array in the browser's localStorage, and we use JSON stringify to convert it into string, bcz localStorage only store strings
       localStorage.setItem('currentUser', JSON.stringify(userData)); //This line stores the userData object for the currently signed-in user in the local storage under the key 'currentUser'.
       this.cookie.set('isVerified', 'true'); // it is set true when the user will login, then the otp will popOut
-    }
+    
 
   }
   mobileNumberValidation1() {

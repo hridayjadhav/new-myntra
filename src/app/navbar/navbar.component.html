@@ -1,11 +1,7 @@
 <nav class="header container-fluid py-3 px-4 col-12">
   <div class="d-flex justify-content-between text-uppercase">
     <div class="nav-logo col-lg-1">
-      <a routerLink="/homescreen"
-        ><img
-          [src]="logoImage"
-          alt="NavLogo"
-      /></a>
+      <a [routerLink]="['/home']"><img [src]="logoImage" alt="NavLogo" /></a>
     </div>
     <div class="nav-menu col-lg-5 d-none d-lg-flex justify-content-around mt-3">
       <!-- <div class="dropdown">
@@ -28,33 +24,56 @@
     </div>
     <div class="searchbar d-none d-lg-flex align-items-center">
       <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
-      <input type="search" placeholder="Search for products,brands and more" />
+      <input
+        type="search"
+        autocomplete="off"
+        
+        placeholder="Search for products,brands and more"
+      />
     </div>
-    <div class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3 collapse">
+    <div
+      class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3 collapse"
+    >
       <div class="nav-item dropdown">
-        <a href="#" class="nav-link dropdown-toggle btn-sm" role="button" data-bs-toggle="dropdown"
-        ><fa-icon class="me-xl-1 ms-lg-3" [icon]="userIcon"></fa-icon>Profile</a
-      >
-      <ul class="dropdown-menu mt-2">
-        <li class="mt-2"><span class="dropdown-item text-dark fw-normal">Welcome, {{userData.name}}</span></li>
-        <li><span class="dropdown-item text-dark fw-normal">{{userData.mobile_number}}</span></li>
-        <li><div class="divider my-3"></div></li>
-        <li><a href="#" class="dropdown-item">Output</a></li>
-        <li><a href="#" class="dropdown-item">Wishlist</a></li>
-        <li><a href="#" class="dropdown-item">Gift Cards</a></li>
-        <li><a href="#" class="dropdown-item">Contact Us</a></li>
-        <li><a href="#" class="dropdown-item">Myntra Insider</a></li>
-        <li><div class="divider my-3"></div></li>
-        <li>
-          <a class="logoutBtn dropdown-item d-none d-lg-block" (click)="logout()">Logout</a>
-        </li>
-        
-        
-      </ul>
-      
-      
+        <a
+          href="#"
+          class="nav-link dropdown-toggle btn-sm"
+          role="button"
+          data-bs-toggle="dropdown"
+          ><fa-icon class="me-xl-1 ms-lg-3" [icon]="userIcon"></fa-icon
+          >Profile</a
+        >
+        <ul class="dropdown-menu mt-2">
+          <li class="mt-2">
+            <span class="dropdown-item text-dark fw-normal"
+              >Welcome, {{ userData.name }}</span
+            >
+          </li>
+          <li>
+            <span class="dropdown-item text-dark fw-normal">{{
+              userData.arrayMobileNumber
+            }}</span>
+          </li>
+          <li><div class="divider my-3"></div></li>
+          <li>
+            <a [routerLink]="['/orders']" class="dropdown-item">Orders</a>
+          </li>
+          <li><a href="#" class="dropdown-item">Output</a></li>
+          <li><a href="#" class="dropdown-item">Wishlist</a></li>
+          <li><a href="#" class="dropdown-item">Gift Cards</a></li>
+          <li><a href="#" class="dropdown-item">Contact Us</a></li>
+          <li><a href="#" class="dropdown-item">Myntra Insider</a></li>
+          <li><div class="divider my-3"></div></li>
+          <li>
+            <a
+              class="logoutBtn dropdown-item d-none d-lg-block"
+              (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
       </div>
-      
+
       <a href="#"
         ><fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="heartIcon"></fa-icon
         >Wishlist</a
@@ -117,4 +136,3 @@
     </a> -->
   </div>
 </nav>
-

@@ -23,6 +23,7 @@
                 name="contactNo"
                 formControlName="contactNo"
                 (input)="mobileNumberValidation()"
+                autocomplete="off"
                 [ngClass]="{
                   'is-invalid': contactNo.touched && contactNo.invalid
                 }"
@@ -44,6 +45,7 @@
                   class="form-control py-1"
                   name="password"
                   formControlName="password"
+                  autocomplete="off"
                   [ngClass]="{
                     'is-invalid': password.touched && password.invalid
                   }"
@@ -126,8 +128,12 @@
           <div>
             <h5>Verify with OTP</h5>
           </div>
-          <div class="fs-small">Sent to {{ mobileNum }}</div>
-          <form [formGroup]="otpForm" class="input-group mt-4">
+          <div class="fs-small">Sent to {{ loginMobileNumber }}</div>
+          <form
+            [formGroup]="otpForm"
+            (ngSubmit)="onOTPForm()"
+            class="input-group mt-4"
+          >
             <input
               type="text"
               class="form-control"
@@ -143,8 +149,7 @@
             <div class="button mt-3 text-center">
               <button
                 [disabled]="otpForm.invalid"
-                (click)="goToHome()"
-                type="button"
+                type="submit"
                 class="btn btn-secondary text-uppercase fw-bold"
                 data-bs-toggle="modal"
                 data-bs-target="#staticBackdrop"

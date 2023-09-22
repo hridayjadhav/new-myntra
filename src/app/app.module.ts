@@ -11,6 +11,8 @@ import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CookieService } from 'ngx-cookie-service';
 import { SignupComponent } from './signup/signup.component';
+import { OrdersComponent } from './orders/orders.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { SignupComponent } from './signup/signup.component';
     MainComponent,
     FooterComponent,
     HomeComponent,
-    SignupComponent
+    SignupComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { SignupComponent } from './signup/signup.component';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    HttpClientModule
     
   ],
   providers: [CookieService],

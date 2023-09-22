@@ -35,7 +35,7 @@ export class NavbarComponent implements OnInit{
 
   logout(){
     // this.cookie.deleteAll();
-    this.isLoggedIn = false;
+    // this.isLoggedIn = false;
     localStorage.removeItem('currentUser');
     this.cookie.delete('isVerified');
     this.router.navigate(['/login']);
