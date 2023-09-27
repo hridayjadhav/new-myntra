@@ -28,8 +28,8 @@ export class OrdersComponent implements OnInit {
       searchQuery: [''],
     });
     this.searchForm.get('searchQuery').valueChanges.subscribe((searchQuery: any) => {
-      this.onSubmitSearch(searchQuery);
-    });
+        this.onSubmitSearch(searchQuery);
+      });
   }
 
   ngOnInit(): void {
@@ -38,22 +38,18 @@ export class OrdersComponent implements OnInit {
     });
   }
 
-  onSubmitSearch(searchQuery : any) {
-    // const searchQuery = this.searchForm.value.searchQuery;
+  onSubmitSearch(searchQuery: any) {
     if (!searchQuery) {
-        this.orderService.getOrders().subscribe((data) => {
-          this.orders = data;
-        });
-        return;
+      this.orderService.getOrders().subscribe((data) => {
+        this.orders = data;
+      });
+      return;
     }
-    this.orders = this.orders.filter((order)=>{
+    this.orders = this.orders.filter((order) => {
       return (
-        order.product_name
-          .toLowerCase()
-          .includes(searchQuery.toLowerCase()) ||
+        order.product_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
         order.product_size.toLowerCase().includes(searchQuery.toLowerCase())
       );
-
     });
   }
 }

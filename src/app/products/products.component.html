@@ -1,0 +1,197 @@
+<app-navbar></app-navbar>
+<section>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Home</a></li>
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li>
+    </ol>
+  </nav>
+  <div class="product-length">
+    <!-- product type and  length here -->
+  </div>
+</section>
+<section class="wrapper">
+  <div class="container">
+    <div>
+      <div class="p25">
+        <h5 class="fw-semibold">FILTERS</h5>
+      </div>
+      <div class="sidebar">
+        <!-- Sidebar content goes here -->
+        <div class="fw-semibold">
+          <div class="mb-1">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="radioNoLabel"
+              id="radioNoLabel1"
+              value=""
+            />
+            <label class="form-check-label ms-1" for="radioNoLabel1">
+              Men
+            </label>
+          </div>
+          <div class="mb-1">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="radioNoLabel"
+              id="radioNoLabel1"
+              value=""
+            />
+            <label class="form-check-label ms-1" for="radioNoLabel1">
+              Women
+            </label>
+          </div>
+          <div class="mb-1">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="radioNoLabel"
+              id="radioNoLabel1"
+              value=""
+            />
+            <label class="form-check-label ms-1" for="radioNoLabel1">
+              Boys
+            </label>
+          </div>
+          <div class="mb-1">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="radioNoLabel"
+              id="radioNoLabel1"
+              value=""
+            />
+            <label class="form-check-label ms-1" for="radioNoLabel1">
+              Girls
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="p20 d-flex">
+        <div class="d-flex">
+          <div class="dropdown">
+            <button
+              class="btn rounded-0 p-1 dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Bundles
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <div class="form-check form-check-inline ms-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inlineCheckbox1"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox1"
+                    >Bundles</label
+                  >
+                </div>
+                <div class="form-check form-check-inline ms-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inlineCheckbox2"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox2"
+                    >Single Styles</label
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown ms-2">
+            <button
+              class="btn rounded-0 p-1 dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Country of Origin
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                <div class="form-check form-check-inline ms-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inlineCheckbox1"
+                    value="option1"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox1"
+                    >All Countries</label
+                  >
+                </div>
+                <div class="form-check form-check-inline ms-2">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    id="inlineCheckbox2"
+                    value="option2"
+                  />
+                  <label class="form-check-label" for="inlineCheckbox2"
+                    >India</label
+                  >
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="dropdown ms-2">
+            <button
+              class="btn rounded-0 p-1 dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Size
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item">
+                
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="">
+          <div class="dropdown">
+            <button
+              class="btn rounded-0 p-1 btn-outline-dark dropdown-toggle"
+              type="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              sort by : <span class="fw-bold">Recommended</span>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item"></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="main-content col-lg-3 col-md-4 col-sm-6" *ngFor="let product of products">
+            <div class="card border border-0 "  style="width: 100%;">
+                <img [src]="product.product_image" class="card-img-top rounded-0" alt="...">
+                <a href="#" class="card-body text-decoration-none p-2">
+                  <h5 class="card-title">{{ product.product_name }}</h5>
+                  <p class="card-text">Brand: {{ product.product_brand }}</p>
+                  <p class="card-text">Price: Rs{{ product.product_rate }}</p>
+                </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

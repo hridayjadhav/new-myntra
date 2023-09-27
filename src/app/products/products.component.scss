@@ -1,0 +1,79 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply basic styling to the container */
+.container {
+    display: flex;
+    height: 100vh; /* Full viewport height */
+}
+
+/* Style the sidebar */
+.sidebar {
+    border-right: 1px solid pink;
+    width: 250px;
+    padding: 20px;
+}
+
+/* Style sidebar links */
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Style the main content */
+.main-content {
+    flex: 1; /* Take up remaining space */
+    padding: 20px;
+}
+
+/* Style headings and paragraphs in the main content */
+.main-content h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.main-content p {
+    font-size: 16px;
+}
+
+.wrapper{
+    margin: 50px 100px 0px 50px;
+}
+
+.breadcrumb{
+    margin: 110px 0px 0px 10px;
+}
+.form-check-input{
+    margin-top: 5px;
+}
+.p20{
+    padding: 20px 0px 20px 20px;
+    border-bottom: 1px solid pink;
+    flex: auto;
+}
+.p25{
+    padding: 25px 0px 20px 20px;
+    border-bottom: 1px solid pink;
+}
+.btn:active{
+    --bs-btn-border-color: none !important;
+}
+.btn{
+    font-size: 12px;
+}
+.dropdown-menu{
+    --bs-dropdown-border-color: none;
+}

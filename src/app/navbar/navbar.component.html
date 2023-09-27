@@ -22,15 +22,18 @@
       <a href="#">beauty</a>
       <a href="#">studio <sup class="text-secondary">new</sup></a>
     </div>
-    <div class="searchbar d-none d-lg-flex align-items-center">
-      <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
-      <input
-        type="search"
-        autocomplete="off"
-        
-        placeholder="Search for products,brands and more"
-      />
-    </div>
+    <form class="mt-2">
+      <div class="searchbar d-none d-lg-flex align-items-center">
+        <button type="submit" (click)="onSearchProduct">
+          <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
+        </button>
+        <input
+          type="search"
+          autocomplete="off"
+          placeholder="Search for products,brands and more"
+        />
+      </div>
+    </form>
     <div
       class="icons col-lg-2 d-none d-lg-flex justify-content-around mt-3 collapse"
     >
