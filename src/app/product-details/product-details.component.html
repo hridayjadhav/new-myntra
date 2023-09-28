@@ -1,0 +1,75 @@
+<app-navbar></app-navbar>
+<section class="mt-100">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a [routerLink]="['/home']">Home</a></li>
+        <li class="breadcrumb-item"><a [routerLink]="['/products']">Products</a></li>
+        <li class="breadcrumb-item active">Product-details</li>
+      </ol>
+    </nav>
+    <div class="product-length">
+      <!-- product type and  length here -->
+    </div>
+  </section>
+<section class="wrapper" *ngIf="details">
+    <div class="container">
+        <div class="row">
+            <div class="product-image-side col-6">
+                <div class="prouct-imgage">
+                    <img [src]="details.product_image" alt="">
+                </div>
+            </div>
+            <div class="product-details-side col-6">
+                <div class="product-details">
+                    <h4 class="product brand">Brand : {{details.product_brand}}</h4>
+                    <p class="product-d">Description : {{details.product_description}}</p>
+                    <div class="hr-line"></div>
+                    <p class="product-rate">Price : ${{details.product_rate}}</p>
+                    <p class="product-taxes">inclusive of all taxes</p>
+                    <div class="product-sizes">
+                        <div class="product-size-selection">Size : {{details.product_size}}</div>
+                        <div class="bag-wishlist">
+                            <div class="add-to-bag">
+                                <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="bagIcon"></fa-icon>
+                                ADD TO BAG
+                            </div>
+                            <div class="wishlist">
+                                <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="heartIcon"></fa-icon>
+                                WISHLIST
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line"></div>
+                    <div class="delivery-options">
+                        <div class="delivery-title">
+                            DELIVERY OPTIONS
+                            <span>ICON</span>
+                        </div>
+                        <div class="pincode">
+                            <input type="text">
+                            <p>Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
+                        </div>
+                        <div class="product-assurance">
+                            <p>100% Original Products</p>
+                            <p>Pay on delivery might be available</p>
+                            <p>Easy 14 days returns and exchanges</p>
+                            <p>Try & Buy might be available</p>
+                        </div>
+                    </div>
+                    <div class="product-offers">
+                        <div class="offer-price"></div>
+                        <div class="offer-list">
+                            <p class="coupon-code">Coupon Code : <span class="fw-semibold">MYNTRA200</span></p>
+                        </div>
+                        <div class="discount">
+                            <p class="fw-bold"></p>
+                        </div>
+                        <div class="emi">
+                            <p>EMI starting from Rs.47/month</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

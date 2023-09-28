@@ -7,6 +7,7 @@ import { SignupComponent } from './signup/signup.component';
 import { homeGuard } from './home.guard';
 import { OrdersComponent } from './orders/orders.component';
 import { ProductsComponent } from './products/products.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' }, // Redirect to login by default
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   { path: 'orders', component: OrdersComponent, canActivate: [authGuard]},
   { path: 'products', component: ProductsComponent, canActivate: [authGuard]},
+  { path: 'products_details/:id', component: ProductDetailsComponent, canActivate: [authGuard]},
 ];
 
 @NgModule({

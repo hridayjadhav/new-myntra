@@ -32,6 +32,18 @@ export class OrderService {
     return this.http.get<any[]>(this.productsUrl, options);
   }
 
+  getProductById(id: number): Observable<any> {
+    const productUrl = `${this.productsUrl}/${id}`;
+    const headers = {
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': productUrl,
+    };
+    const options = {
+      headers: headers,
+    };
+    return this.http.get<any>(productUrl, options);
+  }
+
 // because we are accessing the external url in the local4200, headers and options. we used.
 
 }
