@@ -46,7 +46,24 @@ export class NavbarComponent implements OnInit {
     this.cookie.delete('isVerified');
     this.router.navigate(['/login']);
   }
-  onSearchProduct(){
-    this.router.navigate(['/products']);
+
+  onSearchInputChange(event : Event) {
+    const searchQuery = (event.target as HTMLInputElement).value;
+    this.onSubmitSearch(searchQuery);
   }
+
+  onSubmitSearch(searchQuery: string) {
+    if (!searchQuery) {
+      // Handle the case when the search query is empty
+      // For example, you can reset the search results to the original state.
+      return;
+    }
+
+     // Split the search query into words
+     const searchWords = searchQuery.trim().toLowerCase().split(' ');
+
+    // Assuming you want to navigate to the '/products' route
+    this.router.navigate(['/products'], { queryParams: { q: searchQuery } });
+  }
+
 }

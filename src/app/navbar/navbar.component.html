@@ -24,13 +24,14 @@
     </div>
     <form class="mt-2">
       <div class="searchbar d-none d-lg-flex align-items-center">
-        <button type="submit" (click)="onSearchProduct()">
+        <button type="submit">
           <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
         </button>
         <input
           type="search"
           autocomplete="off"
           placeholder="Search for products,brands and more"
+          (input)="onSearchInputChange($event)"
         />
       </div>
     </form>
