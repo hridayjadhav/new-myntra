@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { OrderService } from '../order.service';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -28,6 +29,7 @@ export class ProductsComponent {
   showProductDetails(id: number){
    this.router.navigate(['/products_details', id]);
   }
+  
   
 
   

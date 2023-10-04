@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faBagShopping, faHeart} from '@fortawesome/free-solid-svg-icons';
+import { faBagShopping, faHeart, faTag, faTruck} from '@fortawesome/free-solid-svg-icons';
 import { OrderService } from '../order.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -12,6 +12,8 @@ export class ProductDetailsComponent implements OnInit{
   details: any = null;
   bagIcon = faBagShopping;
   heartIcon = faHeart;
+  truckIcon = faTruck;
+  offerTagIcon = faTag;
 
   constructor(private orderService: OrderService, private route: ActivatedRoute) {}
 

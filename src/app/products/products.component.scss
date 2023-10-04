@@ -36,7 +36,7 @@
 /* Style the main content */
 .main-content {
     flex: 1; /* Take up remaining space */
-    padding: 20px;
+    padding: 16px 5px 0px 13px;
 }
 
 /* Style headings and paragraphs in the main content */
@@ -50,7 +50,7 @@
 }
 
 .wrapper{
-    margin: 50px 100px 0px 50px;
+    margin: 20px 0px 0px 60px;
 }
 
 .breadcrumb{
@@ -80,4 +80,10 @@
 
 .cursor{
     cursor: pointer;
+}
+.small{
+    font-size: 12px !important;
+}
+.card{
+    width: 160px !important;
 }

@@ -1,3 +1,111 @@
 .breadcrumb{
     margin: 110px 0px 0px 10px;
 }
+.hr-line{
+    flex-grow: 1;
+    height: 1px;
+    background-color: #eaeaec;
+    
+}
+.product-brand{
+    color: #282c3f;
+    padding: 0 20px 0 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+.product-d{
+    color: #535665;
+    padding: 5px 20px 14px 0;
+    font-size: 20px;
+    opacity: .8;
+    font-weight: 400;
+}
+.product-taxes{
+    color: #03a685;
+    font-weight: 700;
+    font-size: 14px;
+    display: block;
+    margin: 0px 0px 10 0;
+}
+.size .btn-style{
+    background-color: #fff;
+    border: 1px solid #bfc0c6;
+    border-radius: 50px;
+    padding-top: 10px;
+    min-width: 50px;
+    height: 50px;
+    text-align: center;
+    cursor: pointer;
+    color: #282c3f;
+}
+.b-w-btn{
+    border-radius: 4px;
+  padding: 11px 45px;
+  min-width: 82px;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: #ff3e6c;
+  border: 1px solid #ff3e6c;
+  color: #fff;
+  text-align: center;
+}
+.delivery-title, .offer-title{
+    color: #282c3f;
+    font-size: 16px;
+    margin: 0;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.pincode .pincode-input{
+    border-radius: 5px;
+    border: 1px solid #d4d5d9;
+    box-shadow: 0;
+    padding: 7px;
+    font-size: 16px;
+    min-width: 160px;
+    outline: 0;
+    width: 200px;
+}
+.pincode-check {
+    position: relative;
+    left: -60px;
+    background-color: transparent;
+}
+.pincode-button {
+    outline: 0;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #fff;
+    border: 0;
+    color: #ff3e6c;
+    text-transform: capitalize;
+}
+.pincode-pin{
+    font-size: 11px;
+    color: #282c3f;
+    margin: 3px 0 0;
+}
+.product-assurance, .offers{
+    font-size: 14px;
+    color: #535665;
+}
+.offer-price-color{
+    color: #ff905a;
+    font-weight: 700;
+}
+.product-image img{
+    width: 310px;
+}
+.zoomable {
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .zoomable:hover {
+    transform: scale(1.06);
+  }
+
+.product-image{
+    overflow: hidden;
+}
