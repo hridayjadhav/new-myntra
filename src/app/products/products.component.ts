@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { OrderService } from '../order.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Product} from '../utils/utils';
+
 
 @Component({
   selector: 'app-products',
@@ -9,7 +11,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProductsComponent {
 
-  products: any  = [];
+  products: Product[] = [];
   selectedProduct: any = null;
   searchQuery: string = '';
 
@@ -24,18 +26,23 @@ export class ProductsComponent {
 
   loadProducts() {
     this.orderService.getProducts().subscribe((data) => {
-      // Filter products based on the search query
       this.products = data.filter((product) =>
-        product.product_name.includes(this.searchQuery)
+      this.matchesSearch(product)
       );
     });
   }
-
-  showProductDetails(id: number){
-   this.router.navigate(['/products_details', id]);
+  matchesSearch(product: Product): boolean {
+    const query = this.searchQuery.toLowerCase();
+    return (
+      product.product_name.toLowerCase().includes(query) ||
+      product.product_brand.toLowerCase().includes(query) ||
+      product.product_type.toLowerCase().includes(query)
+    );
   }
   
-  
+  showProductDetails(id: number){
+    this.router.navigate(['/products_details', id]);
+   }
 
   
 

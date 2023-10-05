@@ -44,6 +44,4 @@ export class OrderService {
     return this.http.get<any>(productUrl, options);
   }
 
-// because we are accessing the external url in the local4200, headers and options. we used.
-
 }

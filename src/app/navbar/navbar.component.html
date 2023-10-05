@@ -22,7 +22,7 @@
       <a href="#">beauty</a>
       <a href="#">studio <sup class="text-secondary">new</sup></a>
     </div>
-    <form class="mt-2">
+    <form class="mt-2" [formGroup]="searchForm" (ngSubmit)="onSubmitSearch()">
       <div class="searchbar d-none d-lg-flex align-items-center">
         <button type="submit">
           <fa-icon class="ms-lg-3 ms-xl-1" [icon]="searchIcon"></fa-icon>
@@ -31,7 +31,7 @@
           type="search"
           autocomplete="off"
           placeholder="Search for products,brands and more"
-          (input)="onSearchInputChange($event)"
+          formControlName="searchQuery"
         />
       </div>
     </form>
@@ -50,12 +50,12 @@
         <ul class="dropdown-menu mt-2">
           <li class="mt-2">
             <span class="dropdown-item text-dark fw-normal"
-              >Welcome, {{ userData.name }}</span
+              >Welcome, {{ userData?.name }}</span
             >
           </li>
           <li>
             <span class="dropdown-item text-dark fw-normal">{{
-              userData.arrayMobileNumber
+              userData?.arrayMobileNumber
             }}</span>
           </li>
           <li><div class="divider my-3"></div></li>

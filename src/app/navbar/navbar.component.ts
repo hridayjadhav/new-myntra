@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { nav_img_url } from '../constants/constants';
 import { OrderService } from '../order.service';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',
@@ -25,16 +26,26 @@ export class NavbarComponent implements OnInit {
   menuIcon = faBars;
   logoutIcon = faArrowRightFromBracket;
 
+  searchForm: any;
+
   //imgs
   logoImage = nav_img_url;
   userData: any; // Create a variable to store user data
   isLoggedIn: any;
-  searchProduct : any = '';
+  searchProduct: any = '';
   // onSearchProduct = false;
 
-  constructor(private router: Router, private cookie: CookieService, private orderService : OrderService) {}
+  constructor(
+    private router: Router,
+    private cookie: CookieService,
+    private orderService: OrderService,
+    private formBuilder: FormBuilder
+  ) {
+    this.searchForm = this.formBuilder.group({
+      searchQuery: [''],
+    });
+  }
   ngOnInit(): void {
-    // Retrieve user data from localStorage
     const userDataJson = localStorage.getItem('currentUser');
     if (userDataJson) {
       this.userData = JSON.parse(userDataJson);
@@ -47,23 +58,10 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  onSearchInputChange(event : Event) {
-    const searchQuery = (event.target as HTMLInputElement).value;
-    this.onSubmitSearch(searchQuery);
-  }
-
-  onSubmitSearch(searchQuery: string) {
-    if (!searchQuery) {
-      // Handle the case when the search query is empty
-      // For example, you can reset the search results to the original state.
-      return;
+  onSubmitSearch() {
+    const searchQuery = this.searchForm.get('searchQuery').value;
+    if (searchQuery) {
+      this.router.navigate(['/products'], { queryParams: { q: searchQuery } });
     }
-
-     // Split the search query into words
-     const searchWords = searchQuery.trim().toLowerCase().split(' ');
-
-    // Assuming you want to navigate to the '/products' route
-    this.router.navigate(['/products'], { queryParams: { q: searchQuery } });
   }
-
 }

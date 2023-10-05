@@ -94,3 +94,14 @@ export function genderErrors(errors: any): any {
   }
   return '';
 }
+
+
+
+export interface Product {
+  id: number;
+  product_name: string;
+  product_brand: string;
+  product_type: string;
+  product_image: string;
+  product_rate: string;
+}
