@@ -1,101 +1,139 @@
 <app-navbar></app-navbar>
 <section class="mt-100">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a class="text-decoration-none text-dark" [routerLink]="['/home']">Home</a></li>
-        <li class="breadcrumb-item"><a class="text-decoration-none text-dark" [routerLink]="['/products']">Products</a></li>
-        <li class="breadcrumb-item active">Product-details</li>
-      </ol>
-    </nav>
-    <div class="product-length">
-      <!-- product type and  length here -->
-    </div>
-  </section>  
-  <section class="wrapper container-fluid mt-4" *ngIf="details">
-        <div class="row">
-            <div class="product-image-side col-6">
-                <div class="d-flex justify-content-around">
-                    <div class="product-image ">
-                        <img class="zoomable cursor" [src]="details.product_image" alt="">
-                    </div>
-                    <div class="product-image ">
-                        <img class="zoomable cursor" [src]="details.product_image2" alt="">
-                    </div>
-                </div>
-                <div class="d-flex justify-content-around mt-5">
-                    <div class="product-image">
-                        <img class="zoomable cursor" [src]="details.product_image3" alt="">
-                    </div>
-                    <div class="product-image">
-                        <img class="zoomable cursor" [src]="details.product_image4" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="product-details-side col-6">
-                <div class="product-details">
-                    <h1 class="product-brand">{{details.product_brand}}</h1>
-                    <p class="product-d">{{details.product_description}}</p>
-                    <p class="gender fw-semibold">{{details.gender}}</p>
-                    <div class="hr-line"></div>
-                    <span class="product-rate"><strong>Price : <span class="offer-price-color">${{details.product_rate}}</span></strong></span>
-                    <p class="product-taxes">inclusive of all taxes</p>
-                    <div class="product-sizes">
-                        <div class="product-size-selection fw-semibold">Size : {{details.product_size}}</div>
-                        <div class="d-flex my-3">
-                            <div class="size"><p class="btn-style">S</p></div>
-                            <div class="size mx-3"><p class="btn-style">M</p></div>
-                            <div class="size"><p class="btn-style">L</p></div>
-                        </div>
-                    </div>
-                    <div class="bag-wishlist d-flex mb-3">
-                        <div class="add-to-bag b-w-btn me-2">
-                            <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="bagIcon"></fa-icon>
-                            ADD TO BAG
-                        </div>
-                        <div class="wishlist b-w-btn">
-                            <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="heartIcon"></fa-icon>
-                            WISHLIST
-                        </div>
-                    </div>
-                    <div class="hr-line"></div>
-                    <div class="delivery-options mt-2">
-                        <div class="delivery-title">
-                            DELIVERY OPTIONS
-                            <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="truckIcon"></fa-icon>
-                        </div>
-                        <form class="pincode mt-3">
-                            <input type="text" class="pincode-input" placeholder="Enter pincode">
-                            <input type="submit" class="pincode-check pincode-button" value="Check">
-                            <p class="pincode-pin">Please enter PIN code to check delivery time & Pay on Delivery Availability</p>
-                        </form>
-                        <div class="product-assurance mt-4">
-                            <p>100% Original Products</p>
-                            <p>Pay on delivery might be available</p>
-                            <p>Easy 14 days returns and exchanges</p>
-                            <p>Try & Buy might be available</p>
-                        </div>
-                    </div>
-                    <div class="hr-line"></div>
-                    <div class="product-offers">
-                        <div class="offer-title d-flex">
-                            Best Offers
-                            <fa-icon class=" ms-2" [icon]="offerTagIcon"></fa-icon>
-                        </div>
-                        <div class="offers">
-                            <div class="offer-price fw-semibold mb-3">Discount : <span class="offer-price-color">{{details.product_discount}}Rs</span></div>
-                        <div class="offer-list">
-                            <p class="coupon-code">Coupon Code : <span class="fw-semibold">MYNTRA200</span></p>
-                        </div>
-                        <div class="discount">
-                            <p class="fw-bold"></p>
-                        </div>
-                        <div class="emi">
-                            <p>EMI starting from Rs.47/month</p>
-                        </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a class="text-decoration-none text-dark" [routerLink]="['/home']"
+          >Home</a
+        >
+      </li>
+      <li class="breadcrumb-item">
+        <a class="text-decoration-none text-dark" [routerLink]="['/products']"
+          >Products</a
+        >
+      </li>
+      <li class="breadcrumb-item active">Product-details</li>
+    </ol>
+  </nav>
+</section>
+<section class="wrapper container-fluid mt-4" *ngIf="details">
+  <div class="row">
+    <div class="product-image-side col-6">
+      <div class="d-flex justify-content-around">
+        <div class="product-image">
+          <img class="zoomable cursor" [src]="details.product_image" alt="" />
         </div>
-  </section>
-  <app-footer></app-footer>
+        <div class="product-image">
+          <img class="zoomable cursor" [src]="details.product_image2" alt="" />
+        </div>
+      </div>
+      <div class="d-flex justify-content-around mt-3">
+        <div class="product-image">
+          <img class="zoomable cursor" [src]="details.product_image3" alt="" />
+        </div>
+        <div class="product-image">
+          <img class="zoomable cursor" [src]="details.product_image4" alt="" />
+        </div>
+      </div>
+    </div>
+    <div class="product-details-side col-6">
+      <div class="product-details">
+        <h1 class="product-brand">{{ details.product_brand }}</h1>
+        <p class="product-d">{{ details.product_description }}</p>
+        <p class="gender fw-semibold">{{ details.gender }}</p>
+        <div class="hr-line"></div>
+        <span class="product-rate"
+          ><strong
+            >Price :
+            <span class="offer-price-color"
+              >${{ details.product_rate }}</span
+            ></strong
+          ></span
+        >
+        <p class="product-taxes">inclusive of all taxes</p>
+        <div class="product-sizes">
+          <div class="product-size-selection fw-semibold">
+            Size : {{ details.product_size }}
+          </div>
+          <div class="d-flex my-3">
+            <div class="size"><p class="btn-style">S</p></div>
+            <div class="size mx-3"><p class="btn-style">M</p></div>
+            <div class="size"><p class="btn-style">L</p></div>
+          </div>
+        </div>
+        <div class="bag-wishlist d-flex mb-3">
+          <div class="add-to-bag b-w-btn me-2">
+            <fa-icon class="me-xl-1 ms-xl-2 ms-lg-3" [icon]="bagIcon"></fa-icon>
+            ADD TO BAG
+          </div>
+          <div class="wishlist b-w-btn">
+            <fa-icon
+              class="me-xl-1 ms-xl-2 ms-lg-3"
+              [icon]="heartIcon"
+            ></fa-icon>
+            WISHLIST
+          </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="delivery-options mt-2">
+          <div class="delivery-title">
+            DELIVERY OPTIONS
+            <fa-icon
+              class="me-xl-1 ms-xl-2 ms-lg-3"
+              [icon]="truckIcon"
+            ></fa-icon>
+          </div>
+          <form class="pincode mt-3">
+            <input
+              type="text"
+              class="pincode-input"
+              placeholder="Enter pincode"
+            />
+            <input
+              type="submit"
+              class="pincode-check pincode-button"
+              value="Check"
+            />
+            <p class="pincode-pin">
+              Please enter PIN code to check delivery time & Pay on Delivery
+              Availability
+            </p>
+          </form>
+          <div class="product-assurance mt-4">
+            <p>100% Original Products</p>
+            <p>Pay on delivery might be available</p>
+            <p>Easy 14 days returns and exchanges</p>
+            <p>Try & Buy might be available</p>
+          </div>
+        </div>
+        <div class="hr-line"></div>
+        <div class="product-offers">
+          <div class="offer-title d-flex">
+            Best Offers
+            <fa-icon class="ms-2" [icon]="offerTagIcon"></fa-icon>
+          </div>
+          <div class="offers">
+            <div class="offer-price fw-semibold mb-3">
+              Discount :
+              <span class="offer-price-color"
+                >{{ details.product_discount }}Rs</span
+              >
+            </div>
+            <div class="offer-list">
+              <p class="coupon-code">
+                Coupon Code : <span class="fw-semibold">MYNTRA200</span>
+              </p>
+            </div>
+            <div class="discount">
+              <p class="fw-bold"></p>
+            </div>
+            <div class="emi">
+              <p>EMI starting from Rs.47/month</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>

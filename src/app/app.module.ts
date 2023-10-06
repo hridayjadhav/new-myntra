@@ -17,6 +17,7 @@ import { ProductsComponent } from './products/products.component';
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-owl-carousel-o';
+import { FloatingbellComponent } from './floatingbell/floatingbell.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +29,8 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
     SignupComponent,
     OrdersComponent,
     ProductsComponent,
-    ProductDetailsComponent
+    ProductDetailsComponent,
+    FloatingbellComponent
   ],
   imports: [
     BrowserModule,
